@@ -13,12 +13,15 @@ namespace Graded_Unit
         Texture2D m_txr;
         Rectangle Collision;
         Vector2 m_Origin,m_Pos;
+        int speed;
+
+        Game1 instance;
 
         float m_Rotation,m_Scale;
 
         GamePadState m_CurrentState, OldState;
         
-        public Player(Texture2D Texture, int X, int Y)
+        public Player(Texture2D Texture, int X, int Y, int S)
         {
             m_txr = Texture;
 
@@ -28,15 +31,20 @@ namespace Graded_Unit
             m_Origin = new Vector2(m_txr.Width / 2, m_txr.Height / 2); // this might be wrong
 
             m_Scale = 1;
+
+            speed = S;
         }
+
         public void Update(GamePadState Currpad)
         {
             m_CurrentState = Currpad; // always at start of update
 
-
             m_Rotation = (float) Math.Atan2(m_CurrentState.ThumbSticks.Right.X,m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
 
+            m_Pos.X += m_CurrentState.ThumbSticks.Left.X * speed;
+            m_Pos.Y -= m_CurrentState.ThumbSticks.Left.Y * speed;
 
+            Console.WriteLine(m_Pos);
 
             Collision.X = (int)m_Pos.X;
             Collision.Y = (int)m_Pos.Y;
@@ -47,6 +55,11 @@ namespace Graded_Unit
         public void Draw(SpriteBatch sb)
         {
             sb.Draw(m_txr,m_Pos , null, Color.Red, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
+        }
+
+        public Vector2 getPos()
+        {
+             return new Vector2(-m_Pos.X + 960, -m_Pos.Y + 540);
         }
     }
 }
