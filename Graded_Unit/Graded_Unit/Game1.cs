@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-enum States
+enum GameStates
 {
     Start,
     Instructions,
     Playing,
-
+    Pause,
 }
 
 namespace Graded_Unit
@@ -19,14 +19,20 @@ namespace Graded_Unit
 
     public class Game1 : Game
     {
+        Texture2D debugpixel;
+
+        GameStates CurrentState = GameStates.Playing;
+
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Random RNG;
-        GamePadState CurrPad,Oldpad;
+        GamePadState CurrPad, Oldpad;
 
         Player player;
 
         Map map;
+
+
 
         public Game1()
         {
@@ -45,7 +51,7 @@ namespace Graded_Unit
             RNG = new Random();
             map = new Map();
 
-            player = new Player(Content.Load<Texture2D>("Tile1"),0,0,3);
+            player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3);
 
             base.Initialize();
         }
@@ -54,6 +60,8 @@ namespace Graded_Unit
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            debugpixel = Content.Load<Texture2D>("pixel");
 
             CollisionTiles.Content = Content; // This allows for the textures to be loaded into the class directly
 
@@ -104,13 +112,37 @@ namespace Graded_Unit
 
         protected override void Update(GameTime gameTime)
         {
-            CurrPad = GamePad.GetState(PlayerIndex.One,GamePadDeadZone.None);
+            CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
+
+
             if (CurrPad.Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
             }
 
-            player.Update(CurrPad);
+            switch (CurrentState)
+            {
+                case GameStates.Start:
+
+                    break;
+
+                case GameStates.Instructions:
+
+                    break;
+
+                case GameStates.Playing:
+                    player.Update(CurrPad,map.CollisionTiles);
+
+                    break;
+
+                case GameStates.Pause:
+
+                    break;
+            }
+
+
+
+
 
             Oldpad = CurrPad;
             base.Update(gameTime);
@@ -127,7 +159,8 @@ namespace Graded_Unit
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(new Vector3(player.getPos().X, player.getPos().Y, 0)));
 
             map.Draw(spriteBatch);
-            player.Draw(spriteBatch);
+
+            player.Draw(spriteBatch, debugpixel);
 
             spriteBatch.End();
 
