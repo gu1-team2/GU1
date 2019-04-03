@@ -11,7 +11,7 @@ enum States
     Start,
     Instructions,
     Playing,
-
+    End,
 }
 
 namespace Graded_Unit
@@ -22,7 +22,7 @@ namespace Graded_Unit
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Random RNG;
-        GamePadState CurrPad,Oldpad;
+        GamePadState CurrPad, Oldpad;
 
         Player player;
 
@@ -46,7 +46,7 @@ namespace Graded_Unit
             RNG = new Random();
             map = new Map();
 
-            player = new Player(Content.Load<Texture2D>("Tile1"),100,100);
+            player = new Player(Content.Load<Texture2D>("Tile1"), 320, 320);
 
             base.Initialize();
         }
@@ -105,7 +105,7 @@ namespace Graded_Unit
 
         protected override void Update(GameTime gameTime)
         {
-            CurrPad = GamePad.GetState(PlayerIndex.One,GamePadDeadZone.None);
+            CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
             if (CurrPad.Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -113,6 +113,28 @@ namespace Graded_Unit
 
             player.Update(CurrPad);
 
+            foreach (CollisionTiles tile in map.CollisionTiles) // this adds the collision to the blocks
+            {
+                if (tile.IMPASSABLE)
+                {
+                    if (player.Collision.Intersects(tile.Rectangle) & player.Collision.Y >= (tile.Rectangle.Y + tile.Rectangle.Height)) //This is for the bottom of the block with the collision  
+                    {
+
+                    }
+                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.Y <= (tile.Rectangle.Y)) //This is for the top of the block for the collison
+                    {
+
+                    }
+                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.X <= (tile.Rectangle.X)) //This is for the left of the block for the collision 
+                    {
+
+                    }
+                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.X >= (tile.Rectangle.X + tile.Rectangle.Width)) //This is for the right of the block for the collision 
+                    {
+
+                    }
+                }
+            }
             Oldpad = CurrPad;
             base.Update(gameTime);
         }

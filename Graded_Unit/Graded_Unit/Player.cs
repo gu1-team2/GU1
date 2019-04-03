@@ -11,7 +11,7 @@ namespace Graded_Unit
     class Player
     {
         Texture2D m_txr;
-        Rectangle Collision;
+        public Rectangle Collision;
         Vector2 m_Origin,m_Pos;
 
         float m_Rotation,m_Scale;
