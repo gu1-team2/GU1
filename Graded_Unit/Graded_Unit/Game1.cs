@@ -11,7 +11,7 @@ enum States
     Start,
     Instructions,
     Playing,
-    End,
+
 }
 
 namespace Graded_Unit
@@ -19,13 +19,12 @@ namespace Graded_Unit
 
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Random RNG;
-        GamePadState CurrPad, Oldpad;
+        GamePadState CurrPad,Oldpad;
 
         Player player;
-
 
         Map map;
 
@@ -40,13 +39,13 @@ namespace Graded_Unit
         {
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
             RNG = new Random();
             map = new Map();
 
-            player = new Player(Content.Load<Texture2D>("Tile1"), 320, 320);
+            player = new Player(Content.Load<Texture2D>("Tile1"),0,0,3);
 
             base.Initialize();
         }
@@ -92,7 +91,7 @@ namespace Graded_Unit
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//26
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//27 should be all ones
                 
-            }, 40);
+            }, 160);
 
 
             // TODO: use this.Content to load your game content here
@@ -105,7 +104,7 @@ namespace Graded_Unit
 
         protected override void Update(GameTime gameTime)
         {
-            CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
+            CurrPad = GamePad.GetState(PlayerIndex.One,GamePadDeadZone.None);
             if (CurrPad.Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -113,28 +112,6 @@ namespace Graded_Unit
 
             player.Update(CurrPad);
 
-            foreach (CollisionTiles tile in map.CollisionTiles) // this adds the collision to the blocks
-            {
-                if (tile.IMPASSABLE)
-                {
-                    if (player.Collision.Intersects(tile.Rectangle) & player.Collision.Y >= (tile.Rectangle.Y + tile.Rectangle.Height)) //This is for the bottom of the block with the collision  
-                    {
-
-                    }
-                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.Y <= (tile.Rectangle.Y)) //This is for the top of the block for the collison
-                    {
-
-                    }
-                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.X <= (tile.Rectangle.X)) //This is for the left of the block for the collision 
-                    {
-
-                    }
-                    else if (player.Collision.Intersects(tile.Rectangle) & player.Collision.X >= (tile.Rectangle.X + tile.Rectangle.Width)) //This is for the right of the block for the collision 
-                    {
-
-                    }
-                }
-            }
             Oldpad = CurrPad;
             base.Update(gameTime);
         }
@@ -147,7 +124,7 @@ namespace Graded_Unit
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(new Vector3(player.getPos().X, player.getPos().Y, 0)));
 
             map.Draw(spriteBatch);
             player.Draw(spriteBatch);
