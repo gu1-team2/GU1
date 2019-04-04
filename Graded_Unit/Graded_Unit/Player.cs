@@ -56,28 +56,68 @@ namespace Graded_Unit
                 {
                     if (Collision.Top < tile.Rectangle.Bottom)
                     {
-                        Movement.Y = 0;
+                        m_Pos.Y = tile.Rectangle.X + tile.Rectangle.Height;
                     }
                     if (Collision.Bottom > tile.Rectangle.Top)
                     {
-                        Movement.Y = 0;
+                        m_Pos.Y = tile.Rectangle.Y - 5;
                     }
                     if (Collision.Left < tile.Rectangle.Right)
                     {
-                        Movement.X = 0;
+                        m_Pos.X -= Movement.X;
                     }
                     if (Collision.Right > tile.Rectangle.Left)
                     {
-                        Movement.X = 0;
+                        m_Pos.X -= Movement.X ;
                     }
                 }
 
             }
+            /*
+             * static class RectangleHelper
+    {
+        public static bool TouchTopOf(this Rectangle r1, Rectangle r2)
+        {
+            return (r1.Bottom >= r2.Top - 1 &&
+                    r1.Bottom <= r2.Top + (r2.Height / 2) &&
+                    r1.Right >= r2.Left + (r2.Width / 5) &&
+                    r1.Left <= r2.Right - (r2.Width / 5));
+        }
 
+        public static bool TouchBottomOf(this Rectangle r1, Rectangle r2)
+        {
+            return (r1.Top <= r2.Bottom + (r2.Height / 5) &&
+                    r1.Top >= r2.Bottom - 1 &&
+                    r1.Right >= r2.Left + (r2.Width / 5) &&
+                    r1.Left <= r2.Right - (r2.Width / 5));
+        }
+
+        public static bool TouchLeftOf(this Rectangle r1, Rectangle r2)
+        {
+            return (r1.Right <= r2.Right &&
+                    r1.Right >= r2.Left - 5 &&
+                    r1.Top <= r2.Bottom - (r2.Width / 4) &&
+                    r1.Bottom >= r2.Top + (r2.Width / 4));
+        }
+
+        public static bool TouchRightOf(this Rectangle r1, Rectangle r2)
+        {
+            return (r1.Left >= r2.Left &&
+                    r1.Left <= r2.Right + 5 &&
+                    r1.Top <= r2.Bottom - (r2.Width / 4) &&
+                    r1.Bottom >= r2.Top + (r2.Width / 4));
+
+        }
+
+    }
+             * 
+             * 
+             * 
+             * */
             m_Pos.X += Movement.X;
             m_Pos.Y -= Movement.Y;
             Collision.X = (int)m_Pos.X - m_txr.Width / 2;
-            Collision.Y = (int)m_Pos.Y - m_txr.Height / 2 ;
+            Collision.Y = (int)m_Pos.Y - m_txr.Height / 2;
 
             OldState = m_CurrentState; //Always at the end of update
         }
