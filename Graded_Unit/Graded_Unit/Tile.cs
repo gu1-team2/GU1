@@ -27,11 +27,12 @@ namespace Graded_Unit
             set { content = value; }
         }
 
-        public bool IMPASSABLE;
+        public bool IMPASSABLE,EXIT;
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, rectangle, Color.White);
+
         }
     }
     class CollisionTiles : Tile
@@ -45,6 +46,10 @@ namespace Graded_Unit
             if(i == 1)
             {
                 IMPASSABLE = true;
+            }
+            if(i == 2)
+            {
+                EXIT = true;
             }
         }
     } 

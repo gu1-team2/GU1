@@ -14,8 +14,9 @@ namespace Graded_Unit
         Rectangle Collision;
         Vector2 m_Origin;
         Vector2 m_Pos;
-        Vector2 PREDICTED_LOC;
+        Vector2 Movement;
         int speed;
+
 
         Game1 instance;
 
@@ -43,55 +44,40 @@ namespace Graded_Unit
 
             m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
 
-            m_Pos.X += m_CurrentState.ThumbSticks.Left.X * speed;
-            m_Pos.Y -= m_CurrentState.ThumbSticks.Left.Y * speed;
+            Movement.X = m_CurrentState.ThumbSticks.Left.X * speed;
+            Movement.Y = m_CurrentState.ThumbSticks.Left.Y * speed;
 
-            PREDICTED_LOC = m_Pos;
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-            {
-                m_Pos.Y -= 3;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                m_Pos.Y += 3;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-            {
-                m_Pos.X -= 3;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-            {
-                m_Pos.X += 3;
-            }
+
             //Console.WriteLine(m_Pos);
 
             foreach (CollisionTiles tile in tiles) // this adds the collision to the blocks
             {
-                if (tile.IMPASSABLE == true)
+                if (tile.IMPASSABLE == true && Collision.Intersects(tile.Rectangle))
                 {
-                    
-                     if () //This is for the bottom of the block with the collision  
-                     {
-
-                     }
-                     else if () //This is for the top of the block for the collison
-                     {
-
-                     }
-                     else if () //This is for the left of the block for the collision 
-                     {
-
-                     }
-                     else if () //This is for the right of the block for the collision 
-                     {
-
-                     }
+                    if (Collision.Top < tile.Rectangle.Bottom)
+                    {
+                        Movement.Y = 0;
+                    }
+                    if (Collision.Bottom > tile.Rectangle.Top)
+                    {
+                        Movement.Y = 0;
+                    }
+                    if (Collision.Left < tile.Rectangle.Right)
+                    {
+                        Movement.X = 0;
+                    }
+                    if (Collision.Right > tile.Rectangle.Left)
+                    {
+                        Movement.X = 0;
+                    }
                 }
 
-
             }
+
+            m_Pos.X += Movement.X;
+            m_Pos.Y -= Movement.Y;
             Collision.X = (int)m_Pos.X - m_txr.Width / 2;
-            Collision.Y = (int)m_Pos.Y - m_txr.Height / 2;
+            Collision.Y = (int)m_Pos.Y - m_txr.Height / 2 ;
 
             OldState = m_CurrentState; //Always at the end of update
         }
