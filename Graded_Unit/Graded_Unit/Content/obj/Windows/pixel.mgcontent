@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/ec1631504/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/pixel.png</SourceFile>
-  <SourceTime>2019-04-04T12:33:45.0687948+01:00</SourceTime>
-  <DestFile>C:/Users/ec1631504/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/bin/Windows/pixel.xnb</DestFile>
-  <DestTime>2019-04-04T12:37:47.5677982+01:00</DestTime>
+  <SourceFile>C:/Users/kiera/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/pixel.png</SourceFile>
+  <SourceTime>2019-04-07T13:15:16.7343047+01:00</SourceTime>
+  <DestFile>C:/Users/kiera/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/bin/Windows/pixel.xnb</DestFile>
+  <DestTime>2019-04-07T13:23:33.6451085+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

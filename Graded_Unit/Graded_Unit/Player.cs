@@ -17,9 +17,6 @@ namespace Graded_Unit
         Vector2 Movement;
         int speed;
 
-
-        Game1 instance;
-
         float m_Rotation, m_Scale;
 
         GamePadState m_CurrentState, OldState;
@@ -48,78 +45,41 @@ namespace Graded_Unit
             Movement.Y = m_CurrentState.ThumbSticks.Left.Y * speed;
 
 
-            //Console.WriteLine(m_Pos);
-
-            foreach (CollisionTiles tile in tiles) // this adds the collision to the blocks
+           foreach (CollisionTiles tile in tiles) // this adds the collision to the blocks
             {
                 if (tile.IMPASSABLE == true && Collision.Intersects(tile.Rectangle))
                 {
-                    if (Collision.Top < tile.Rectangle.Bottom)
+
+                    if (Collision.Left < tile.Rectangle.Right && Collision.Right > tile.Rectangle.Right)
                     {
-                        m_Pos.Y = tile.Rectangle.X + tile.Rectangle.Height;
+                        m_Pos.X = (tile.Rectangle.Right + Collision.Width / 2 + 1);
                     }
-                    if (Collision.Bottom > tile.Rectangle.Top)
+                    if (Collision.Right > tile.Rectangle.Left && Collision.Left < tile.Rectangle.Left)
                     {
-                        m_Pos.Y = tile.Rectangle.Y - 5;
+                        m_Pos.X = (tile.Rectangle.Left - Collision.Width / 2 - 1);
                     }
-                    if (Collision.Left < tile.Rectangle.Right)
+                    if (Collision.Top < tile.Rectangle.Bottom && Collision.Bottom > tile.Rectangle.Bottom)
                     {
-                        m_Pos.X -= Movement.X;
+                        m_Pos.Y = (tile.Rectangle.Bottom + Collision.Height / 2 + 1);
                     }
-                    if (Collision.Right > tile.Rectangle.Left)
+                    if (Collision.Bottom > tile.Rectangle.Top && Collision.Top < tile.Rectangle.Top)
                     {
-                        m_Pos.X -= Movement.X ;
+                        m_Pos.Y = (tile.Rectangle.Top - Collision.Height / 2 - 1);
                     }
                 }
+                
 
             }
-            /*
-             * static class RectangleHelper
-    {
-        public static bool TouchTopOf(this Rectangle r1, Rectangle r2)
-        {
-            return (r1.Bottom >= r2.Top - 1 &&
-                    r1.Bottom <= r2.Top + (r2.Height / 2) &&
-                    r1.Right >= r2.Left + (r2.Width / 5) &&
-                    r1.Left <= r2.Right - (r2.Width / 5));
-        }
 
-        public static bool TouchBottomOf(this Rectangle r1, Rectangle r2)
-        {
-            return (r1.Top <= r2.Bottom + (r2.Height / 5) &&
-                    r1.Top >= r2.Bottom - 1 &&
-                    r1.Right >= r2.Left + (r2.Width / 5) &&
-                    r1.Left <= r2.Right - (r2.Width / 5));
-        }
-
-        public static bool TouchLeftOf(this Rectangle r1, Rectangle r2)
-        {
-            return (r1.Right <= r2.Right &&
-                    r1.Right >= r2.Left - 5 &&
-                    r1.Top <= r2.Bottom - (r2.Width / 4) &&
-                    r1.Bottom >= r2.Top + (r2.Width / 4));
-        }
-
-        public static bool TouchRightOf(this Rectangle r1, Rectangle r2)
-        {
-            return (r1.Left >= r2.Left &&
-                    r1.Left <= r2.Right + 5 &&
-                    r1.Top <= r2.Bottom - (r2.Width / 4) &&
-                    r1.Bottom >= r2.Top + (r2.Width / 4));
-
-        }
-
-    }
-             * 
-             * 
-             * 
-             * */
             m_Pos.X += Movement.X;
             m_Pos.Y -= Movement.Y;
             Collision.X = (int)m_Pos.X - m_txr.Width / 2;
             Collision.Y = (int)m_Pos.Y - m_txr.Height / 2;
 
+
             OldState = m_CurrentState; //Always at the end of update
+
+            
         }
 
         public void Draw(SpriteBatch sb, Texture2D px)
@@ -133,5 +93,6 @@ namespace Graded_Unit
         {
             return new Vector2(-m_Pos.X + 960, -m_Pos.Y + 540);
         }
+
     }
 }
