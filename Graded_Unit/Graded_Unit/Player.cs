@@ -16,6 +16,7 @@ namespace Graded_Unit
         Vector2 m_Pos;
         Vector2 Movement;
         int speed;
+        List<Bullet> Bullets;
 
         float m_Rotation, m_Scale;
 
