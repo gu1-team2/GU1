@@ -51,7 +51,7 @@ namespace Graded_Unit
             RNG = new Random();
             map = new Map();
 
-            player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3);
+            player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3,Content.Load<Texture2D>("Bullet"));
 
             base.Initialize();
         }

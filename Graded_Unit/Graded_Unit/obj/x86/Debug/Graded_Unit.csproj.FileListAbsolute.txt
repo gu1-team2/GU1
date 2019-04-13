@@ -52,3 +52,4 @@ C:\Users\kiera\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Uni
 C:\Users\kiera\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
 C:\Users\kiera\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
 C:\Users\kiera\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
+C:\Users\kiera\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Bullet.xnb

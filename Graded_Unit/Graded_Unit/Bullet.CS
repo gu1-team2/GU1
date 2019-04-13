@@ -13,25 +13,30 @@ namespace Graded_Unit
         Texture2D Texture;
         Vector2 Pos;
         Vector2 Origin;
-        Rectangle Collision;
+        Vector2 Direction;
+        public Rectangle Collision;
         float Rotation;
-        int Scale = 1;
+        float Scale = 0.25f;
+        int Speed = 5;
 
-        public Bullet(Texture2D TXR, int X, int Y,float ROT)
+        public Bullet(Texture2D TXR, int X, int Y, float ROT)
         {
             Texture = TXR;
-            Origin = new Vector2(TXR.Width / 2, TXR.Height / 2);
             Pos = new Vector2(X, Y);
             Rotation = ROT;
-            Collision = new Rectangle(X, Y, TXR.Width, TXR.Height);
+            Collision = new Rectangle(X, Y, TXR.Width / 4, TXR.Height / 4);
         }
         public void Update()
         {
-
+            Direction = new Vector2((float)Math.Sin(Rotation), -(float)Math.Cos(Rotation));
+            Direction.Normalize();
+            Pos += Direction * Speed;
+            Collision.X = (int)Pos.X;
+            Collision.Y = (int)Pos.Y;
         }
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(Texture, Pos, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0f);
+            sb.Draw(Texture, Collision, Color.White);
         }
 
     }
