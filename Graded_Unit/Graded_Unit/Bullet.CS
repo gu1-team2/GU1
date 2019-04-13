@@ -12,17 +12,15 @@ namespace Graded_Unit
     {
         Texture2D Texture;
         Vector2 Pos;
-        Vector2 Origin;
         Vector2 Direction;
         public Rectangle Collision;
         float Rotation;
-        float Scale = 0.25f;
-        int Speed = 5;
+        int Speed = 10;
 
         public Bullet(Texture2D TXR, int X, int Y, float ROT)
         {
             Texture = TXR;
-            Pos = new Vector2(X, Y);
+            Pos = new Vector2(X - TXR.Width / 8, Y - TXR.Height / 8); // this makes the bullet centred on the player. The reason for 8 is the bullet is a forth of the size of the texture and needs to be half that
             Rotation = ROT;
             Collision = new Rectangle(X, Y, TXR.Width / 4, TXR.Height / 4);
         }

@@ -13,7 +13,7 @@ namespace Graded_Unit
         Texture2D m_txr, BulletTxr;
         Rectangle Collision;
         Vector2 m_Origin;
-        Vector2 m_Pos;
+        public Vector2 m_Pos;
         Vector2 Movement;
         int speed;
         List<Bullet> Bullets = new List<Bullet>();
@@ -39,6 +39,7 @@ namespace Graded_Unit
 
         public void Update(GamePadState Currpad, List<CollisionTiles> tiles)
         {
+
             m_CurrentState = Currpad; // always at start of update
 
             m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
@@ -46,12 +47,12 @@ namespace Graded_Unit
             Movement.X = m_CurrentState.ThumbSticks.Left.X * speed;
             Movement.Y = m_CurrentState.ThumbSticks.Left.Y * speed;
 
-            if (m_CurrentState.Triggers.Right >= 0.5 && OldState.Triggers.Right <0.5)
+            if (m_CurrentState.Triggers.Right >= 0.5 && OldState.Triggers.Right < 0.5 && Bullets.Count < 6)
             {
                 Bullets.Add(new Bullet(BulletTxr, (int)m_Pos.X, (int)m_Pos.Y, m_Rotation));
             }
 
-            //bullet movements
+            //bullet movement update
             foreach (Bullet bullet in Bullets)
             {
                 bullet.Update();
@@ -64,21 +65,34 @@ namespace Graded_Unit
 
                     if (Collision.Left < tile.Rectangle.Right && Collision.Right > tile.Rectangle.Right)
                     {
-                        m_Pos.X = (tile.Rectangle.Right + Collision.Width / 2 + 1);
+                        if (Movement.X < 0)
+                        {
+                            Movement.X = 0;
+                        }
                     }
                     if (Collision.Right > tile.Rectangle.Left && Collision.Left < tile.Rectangle.Left)
                     {
-                        m_Pos.X = (tile.Rectangle.Left - Collision.Width / 2 - 1);
+                        if (Movement.X > 0)
+                        {
+                            Movement.X = 0;
+                        }
                     }
-                    if (Collision.Top < tile.Rectangle.Bottom && Collision.Bottom > tile.Rectangle.Bottom)
+                    else if (Collision.Top < tile.Rectangle.Bottom && Collision.Bottom > tile.Rectangle.Bottom)
                     {
-                        m_Pos.Y = (tile.Rectangle.Bottom + Collision.Height / 2 + 1);
+                        if (Movement.Y > 0)
+                        {
+                            Movement.Y = 0;
+                        }
                     }
-                    if (Collision.Bottom > tile.Rectangle.Top && Collision.Top < tile.Rectangle.Top)
+                    else if (Collision.Bottom > tile.Rectangle.Top && Collision.Top < tile.Rectangle.Top)
                     {
-                        m_Pos.Y = (tile.Rectangle.Top - Collision.Height / 2 - 1);
+                        if (Movement.Y < 0)
+                        {
+                            Movement.Y = 0;
+                        }
                     }
                 }
+                //end of player collision with the walls
 
                 //remove a bullet whenever it hits a wall
                 for (int i = Bullets.Count - 1; i >= 0; i--)
@@ -87,8 +101,24 @@ namespace Graded_Unit
                     {
                         Bullets.RemoveAt(i);
                     }
+
                 }
             }
+
+            //removes a bullet if it goes off screen
+            for (int i = Bullets.Count - 1; i >= 0; i--)
+            {
+                if (Bullets[i].Collision.X > (m_Pos.X + 960) || Bullets[i].Collision.X < (m_Pos.X - 960))
+                {
+                    Bullets.RemoveAt(i);
+                }
+                if (Bullets[i].Collision.Y > (m_Pos.Y + 540) || Bullets[i].Collision.Y < (m_Pos.Y - 540))
+                {
+                    Bullets.RemoveAt(i);
+                }
+
+            }
+
 
             m_Pos.X += Movement.X;
             m_Pos.Y -= Movement.Y;
@@ -103,7 +133,7 @@ namespace Graded_Unit
 
         public void Draw(SpriteBatch sb, Texture2D px)
         {
-            foreach(Bullet bullet in Bullets)
+            foreach (Bullet bullet in Bullets)
             {
                 bullet.Draw(sb);
             }

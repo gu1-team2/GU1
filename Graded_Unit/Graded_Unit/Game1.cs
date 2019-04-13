@@ -13,6 +13,16 @@ enum GameStates
     Playing,
     Pause,
 }
+enum Levels
+{
+
+    Level0, //tutorial level
+    Level1,
+    Level2,
+    Level3,
+
+    Switch_Level,
+}
 
 namespace Graded_Unit
 {
@@ -22,6 +32,7 @@ namespace Graded_Unit
         Texture2D debugpixel;
 
         GameStates CurrentState = GameStates.Playing;
+        Levels CurrentLevel = Levels.Level0;
 
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -51,7 +62,7 @@ namespace Graded_Unit
             RNG = new Random();
             map = new Map();
 
-            player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3,Content.Load<Texture2D>("Bullet"));
+            player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3, Content.Load<Texture2D>("Bullet"));
 
             base.Initialize();
         }
@@ -131,12 +142,20 @@ namespace Graded_Unit
                     break;
 
                 case GameStates.Playing:
-                    player.Update(CurrPad,map.CollisionTiles);
-
+                    player.Update(CurrPad, map.CollisionTiles);
+                    //Pauses the game
+                    if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                    {
+                        CurrentState = GameStates.Pause;
+                    }
                     break;
 
                 case GameStates.Pause:
-
+                    //Resumes the game
+                    if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                    {
+                        CurrentState = GameStates.Playing;
+                    }
                     break;
             }
 
@@ -158,13 +177,37 @@ namespace Graded_Unit
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(new Vector3(player.getPos().X, player.getPos().Y, 0)));
 
-            map.Draw(spriteBatch);
+            switch (CurrentState)
+            {
+                case GameStates.Start:
 
-            player.Draw(spriteBatch, debugpixel);
+                    break;
+                case GameStates.Instructions:
+
+                    break;
+                case GameStates.Playing:
+                    map.Draw(spriteBatch);
+
+                    player.Draw(spriteBatch, debugpixel);
+
+
+
+                    break;
+                case GameStates.Pause:
+                    map.Draw(spriteBatch);
+
+                    player.Draw(spriteBatch, debugpixel);
+                    break;
+            }
+
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+        public void ResetPlayerLoc(int X, int Y)
+        {
+            player.m_Pos = new Vector2(X, Y);
         }
     }
 }
