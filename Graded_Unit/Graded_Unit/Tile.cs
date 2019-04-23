@@ -21,13 +21,13 @@ namespace Graded_Unit
             protected set { rectangle = value; }
         }
         private static ContentManager content;
-        public static ContentManager Content
+        public static ContentManager Content // this is for having the content loader present to any child classes
         {
             protected get { return content; }
             set { content = value; }
         }
 
-        public bool IMPASSABLE,EXIT;
+        public bool IMPASSABLE,EXIT,START;
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -49,7 +49,7 @@ namespace Graded_Unit
             }
             if(i == 2)
             {
-                EXIT = true;
+                START = true;
             }
         }
     } 

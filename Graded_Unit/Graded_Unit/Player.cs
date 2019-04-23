@@ -42,7 +42,12 @@ namespace Graded_Unit
 
             m_CurrentState = Currpad; // always at start of update
 
-            m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
+            m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Left.X, m_CurrentState.ThumbSticks.Left.Y); // This makes the player face where the Left stick is pointed at
+            if (m_CurrentState.ThumbSticks.Right.X != 0 || m_CurrentState.ThumbSticks.Right.Y != 0)
+            {
+                m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
+            }
+            
 
             Movement.X = m_CurrentState.ThumbSticks.Left.X * speed;
             Movement.Y = m_CurrentState.ThumbSticks.Left.Y * speed;

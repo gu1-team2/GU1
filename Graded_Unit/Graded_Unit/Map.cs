@@ -28,12 +28,11 @@ namespace Graded_Unit
         {
             get { return height; }
         }
-
         public Map() { }
 
         public void Generate(int[,] map,int size)
         {
-
+            
             for(int x = 0; x < map.GetLength(1);x++)
                 for(int y = 0;y < map.GetLength(0); y++)
                 {
@@ -47,6 +46,7 @@ namespace Graded_Unit
                     width =(x + 1) * size;
 
                     height = (y + 1) * size;
+
                 }
 
         }

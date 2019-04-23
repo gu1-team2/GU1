@@ -41,7 +41,7 @@ namespace Graded_Unit
 
         Player player;
 
-        Map map;
+        Map Tutorial;
 
 
 
@@ -60,7 +60,7 @@ namespace Graded_Unit
             graphics.ApplyChanges();
 
             RNG = new Random();
-            map = new Map();
+            Tutorial = new Map();
 
             player = new Player(Content.Load<Texture2D>("Tile1"), 240, 240, 3, Content.Load<Texture2D>("Bullet"));
 
@@ -75,8 +75,9 @@ namespace Graded_Unit
             debugpixel = Content.Load<Texture2D>("pixel");
 
             CollisionTiles.Content = Content; // This allows for the textures to be loaded into the class directly
+            Enemy.Content = Content;
 
-            map.Generate(new int[,]
+            Tutorial.Generate(new int[,]
             {
                 // This is how the levels map will be generated. if the value is greater than 0 this will place a block
                 
@@ -142,7 +143,7 @@ namespace Graded_Unit
                     break;
 
                 case GameStates.Playing:
-                    player.Update(CurrPad, map.CollisionTiles);
+                    player.Update(CurrPad, Tutorial.CollisionTiles);
                     //Pauses the game
                     if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
                     {
@@ -186,7 +187,7 @@ namespace Graded_Unit
 
                     break;
                 case GameStates.Playing:
-                    map.Draw(spriteBatch);
+                    Tutorial.Draw(spriteBatch);
 
                     player.Draw(spriteBatch, debugpixel);
 
@@ -194,7 +195,7 @@ namespace Graded_Unit
 
                     break;
                 case GameStates.Pause:
-                    map.Draw(spriteBatch);
+                    Tutorial.Draw(spriteBatch);
 
                     player.Draw(spriteBatch, debugpixel);
                     break;
