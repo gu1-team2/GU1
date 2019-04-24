@@ -49,3 +49,9 @@
 /processorParam:TextureFormat=Color
 /build:Bullet.png
 
+#begin Gun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Gun.wav
+

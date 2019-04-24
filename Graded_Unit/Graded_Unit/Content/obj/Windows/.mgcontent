@@ -4,8 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/kiera/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
-    <File>C:/Users/kiera/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/pixel.png</File>
-    <File>C:/Users/kiera/Source/Repos/GU1/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
   </SourceFiles>
 </SourceFileCollection>
