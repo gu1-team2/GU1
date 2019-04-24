@@ -35,7 +35,7 @@ namespace Graded_Unit
         private GraphicsDeviceManager gdm;
 
         private string DisplayedText;
-        private int i;
+        public int i;
 
         public Main_Menu(SpriteBatch S, GraphicsDeviceManager G)
         {

@@ -153,6 +153,7 @@ namespace Graded_Unit
         {
             CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
 
+            int state = Main.i;
 
             if (CurrPad.Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
@@ -162,7 +163,8 @@ namespace Graded_Unit
             switch (CurrentState)
             {
                 case GameStates.Start:
-                    Menu.Update();
+                    Main.Draw();
+                    Main.Update();
                     break;
 
                 case GameStates.Instructions:
