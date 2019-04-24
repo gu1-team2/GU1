@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
+    <Compile Include="Main_Menu.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Game1.cs" />
