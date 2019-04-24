@@ -43,7 +43,7 @@ namespace Graded_Unit
 
         int timer;
 
-        Main_Menu Menu;
+        Main_Menu Main;
 
         public Game1()
         {
@@ -82,7 +82,7 @@ namespace Graded_Unit
             Main_Menu.Content = Content;
             Player.Content = Content;
 
-            Menu = new Main_Menu(spriteBatch,graphics);
+            Main = new Main_Menu(spriteBatch,graphics);
 
 
 
@@ -234,7 +234,7 @@ namespace Graded_Unit
             switch (CurrentState)
             {
                 case GameStates.Start:
-                    Menu.Draw();
+                    
                     break;
                 case GameStates.Instructions:
 
