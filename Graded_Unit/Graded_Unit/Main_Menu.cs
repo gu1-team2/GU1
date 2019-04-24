@@ -56,8 +56,8 @@ namespace Graded_Unit
             }
 
             i = (int)Selection.Play;
-            Background = content.Load<Texture2D>("");
-            MenuFont = content.Load<SpriteFont>("");
+            Background = Content.Load<Texture2D>("background");
+            MenuFont = Content.Load<SpriteFont>("");
             sb = S;
         }
         public int ReturnSelection() // Function returns value of i to hook into Game1

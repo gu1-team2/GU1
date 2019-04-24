@@ -1,34 +1,59 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Graded_Unit
 {
     class Player
     {
+        private static ContentManager content;
+        public static ContentManager Content
+        {
+            protected get { return content; }
+            set { content = value; }
+        }
+
+
         Texture2D m_txr, BulletTxr;
-        Rectangle Collision;
+        SoundEffect BulletSound;
+        Rectangle Collision, HudLeft, HudRight;
         Vector2 m_Origin;
         public Vector2 m_Pos;
         Vector2 Movement;
         int speed;
         List<Bullet> Bullets = new List<Bullet>();
+        public List<CollisionTiles> tiles = new List<CollisionTiles>();
 
         float m_Rotation, m_Scale;
 
+        int Width, Height;
+
         GamePadState m_CurrentState, OldState;
 
-        public Player(Texture2D Texture, int X, int Y, int S, Texture2D Bull)
+        public Player(int S, List<CollisionTiles> TILES, int screenWidth, int screenHeight)
         {
-            m_txr = Texture;
-            BulletTxr = Bull;
+            m_txr = Content.Load<Texture2D>("Tile1");
+            BulletTxr = Content.Load<Texture2D>("Bullet");
+            BulletSound = Content.Load<SoundEffect>("Gun");
+            tiles = TILES;
+            m_Pos = new Vector2(400, 400);
+            Collision = new Rectangle(400, 400, m_txr.Width, m_txr.Height);
+            Width = screenWidth;
+            Height = screenHeight;
+            HudLeft = new Rectangle((int)m_Pos.X - (Width / 2), (int)m_Pos.Y - (Height / 2), 400, 200);
 
-            m_Pos = new Vector2(X, Y);
-            Collision = new Rectangle(X, Y, m_txr.Width, m_txr.Height);
+            foreach (CollisionTiles tile in tiles)
+            {
+                if (tile.START)
+                {
+                    // put the position 
+                }
+            }
+
 
             m_Origin = new Vector2(m_txr.Width / 2, m_txr.Height / 2); // this might be wrong
 
@@ -37,7 +62,7 @@ namespace Graded_Unit
             speed = S;
         }
 
-        public void Update(GamePadState Currpad, List<CollisionTiles> tiles)
+        public void Update(GamePadState Currpad)
         {
 
             m_CurrentState = Currpad; // always at start of update
@@ -47,7 +72,7 @@ namespace Graded_Unit
             {
                 m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
             }
-            
+
 
             Movement.X = m_CurrentState.ThumbSticks.Left.X * speed;
             Movement.Y = m_CurrentState.ThumbSticks.Left.Y * speed;
@@ -55,6 +80,7 @@ namespace Graded_Unit
             if (m_CurrentState.Triggers.Right >= 0.5 && OldState.Triggers.Right < 0.5 && Bullets.Count < 6)
             {
                 Bullets.Add(new Bullet(BulletTxr, (int)m_Pos.X, (int)m_Pos.Y, m_Rotation));
+                BulletSound.Play();
             }
 
             //bullet movement update
@@ -68,28 +94,28 @@ namespace Graded_Unit
                 if (tile.IMPASSABLE == true && Collision.Intersects(tile.Rectangle))
                 {
 
-                    if (Collision.Left < tile.Rectangle.Right && Collision.Right > tile.Rectangle.Right)
+                    if (Collision.Left <= tile.Rectangle.Right && Collision.Right >= tile.Rectangle.Right)
                     {
                         if (Movement.X < 0)
                         {
                             Movement.X = 0;
                         }
                     }
-                    if (Collision.Right > tile.Rectangle.Left && Collision.Left < tile.Rectangle.Left)
+                    else if (Collision.Right >= tile.Rectangle.Left && Collision.Left <= tile.Rectangle.Left)
                     {
                         if (Movement.X > 0)
                         {
                             Movement.X = 0;
                         }
                     }
-                    else if (Collision.Top < tile.Rectangle.Bottom && Collision.Bottom > tile.Rectangle.Bottom)
+                    else if (Collision.Top <= tile.Rectangle.Bottom && Collision.Bottom >= tile.Rectangle.Bottom)
                     {
                         if (Movement.Y > 0)
                         {
                             Movement.Y = 0;
                         }
                     }
-                    else if (Collision.Bottom > tile.Rectangle.Top && Collision.Top < tile.Rectangle.Top)
+                    else if (Collision.Bottom >= tile.Rectangle.Top && Collision.Top <= tile.Rectangle.Top)
                     {
                         if (Movement.Y < 0)
                         {
@@ -129,7 +155,8 @@ namespace Graded_Unit
             m_Pos.Y -= Movement.Y;
             Collision.X = (int)m_Pos.X - m_txr.Width / 2;
             Collision.Y = (int)m_Pos.Y - m_txr.Height / 2;
-
+            HudLeft.X = (int)m_Pos.X - (Width / 2);
+            HudLeft.Y = (int)m_Pos.Y - (Height / 2);
 
             OldState = m_CurrentState; //Always at the end of update
 
@@ -145,6 +172,7 @@ namespace Graded_Unit
             sb.Draw(m_txr, m_Pos, null, Color.Red, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
             sb.Draw(px, Collision, Color.Blue * 0.75f);
             sb.Draw(px, new Rectangle((int)m_Pos.X - 1, (int)m_Pos.Y - 1, 3, 3), Color.Yellow);
+            sb.Draw(px, HudLeft, Color.Blue);
         }
 
         public Vector2 getPos()
@@ -152,5 +180,16 @@ namespace Graded_Unit
             return new Vector2(-m_Pos.X + 960, -m_Pos.Y + 540);
         }
 
+        public void ResetPlayer(List<CollisionTiles> Tiles)
+        {
+            foreach (CollisionTiles Tile in Tiles)
+            {
+                if (Tile.START)
+                {
+                    m_Pos = new Vector2(Tile.Rectangle.X, Tile.Rectangle.Y);
+                }
+            }
+            tiles = Tiles;
+        }
     }
 }
