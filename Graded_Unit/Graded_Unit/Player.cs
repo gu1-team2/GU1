@@ -20,7 +20,7 @@ namespace Graded_Unit
 
         Texture2D m_txr, BulletTxr;
         SoundEffect BulletSound;
-        Rectangle Collision, HudLeft, HudRight;
+        Rectangle rectangle, HudLeft, HudRight;
         Vector2 m_Origin;
         public Vector2 m_Pos;
         Vector2 Movement;
@@ -41,7 +41,7 @@ namespace Graded_Unit
             BulletSound = Content.Load<SoundEffect>("Gun");
             tiles = TILES;
             m_Pos = new Vector2(400, 400);
-            Collision = new Rectangle(400, 400, m_txr.Width, m_txr.Height);
+            rectangle = new Rectangle(400, 400, m_txr.Width, m_txr.Height);
             Width = screenWidth;
             Height = screenHeight;
             HudLeft = new Rectangle((int)m_Pos.X - (Width / 2), (int)m_Pos.Y - (Height / 2), 400, 200);
@@ -55,7 +55,7 @@ namespace Graded_Unit
             }
 
 
-            m_Origin = new Vector2(m_txr.Width / 2, m_txr.Height / 2); // this might be wrong
+            m_Origin = new Vector2(m_txr.Width / 2, m_txr.Height / 2);
 
             m_Scale = 1;
 
@@ -91,38 +91,9 @@ namespace Graded_Unit
 
             foreach (CollisionTiles tile in tiles) // this adds the collision to the blocks
             {
-                if (tile.IMPASSABLE == true && Collision.Intersects(tile.Rectangle))
-                {
 
-                    if (Collision.Left <= tile.Rectangle.Right && Collision.Right >= tile.Rectangle.Right)
-                    {
-                        if (Movement.X < 0)
-                        {
-                            Movement.X = 0;
-                        }
-                    }
-                    else if (Collision.Right >= tile.Rectangle.Left && Collision.Left <= tile.Rectangle.Left)
-                    {
-                        if (Movement.X > 0)
-                        {
-                            Movement.X = 0;
-                        }
-                    }
-                    else if (Collision.Top <= tile.Rectangle.Bottom && Collision.Bottom >= tile.Rectangle.Bottom)
-                    {
-                        if (Movement.Y > 0)
-                        {
-                            Movement.Y = 0;
-                        }
-                    }
-                    else if (Collision.Bottom >= tile.Rectangle.Top && Collision.Top <= tile.Rectangle.Top)
-                    {
-                        if (Movement.Y < 0)
-                        {
-                            Movement.Y = 0;
-                        }
-                    }
-                }
+                Collision(tile.Rectangle, tile.IMPASSABLE);
+
                 //end of player collision with the walls
 
                 //remove a bullet whenever it hits a wall
@@ -153,8 +124,8 @@ namespace Graded_Unit
 
             m_Pos.X += Movement.X;
             m_Pos.Y -= Movement.Y;
-            Collision.X = (int)m_Pos.X - m_txr.Width / 2;
-            Collision.Y = (int)m_Pos.Y - m_txr.Height / 2;
+            rectangle.X = (int)m_Pos.X - m_txr.Width / 2;
+            rectangle.Y = (int)m_Pos.Y - m_txr.Height / 2;
             HudLeft.X = (int)m_Pos.X - (Width / 2);
             HudLeft.Y = (int)m_Pos.Y - (Height / 2);
 
@@ -170,9 +141,8 @@ namespace Graded_Unit
                 bullet.Draw(sb);
             }
             sb.Draw(m_txr, m_Pos, null, Color.Red, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
-            sb.Draw(px, Collision, Color.Blue * 0.75f);
+            sb.Draw(px, rectangle, Color.Blue * 0.75f);
             sb.Draw(px, new Rectangle((int)m_Pos.X - 1, (int)m_Pos.Y - 1, 3, 3), Color.Yellow);
-            sb.Draw(px, HudLeft, Color.Blue);
         }
 
         public Vector2 getPos()
@@ -190,6 +160,28 @@ namespace Graded_Unit
                 }
             }
             tiles = Tiles;
+        }
+        public void Collision(Rectangle newRectangle, bool Impassable)
+        {
+            if (rectangle.TouchTopof(newRectangle) && Impassable == true)
+            {
+                m_Pos.Y = newRectangle.Y - (rectangle.Height / 2) - 3;
+                Movement.Y = 0f;
+            }
+            if (rectangle.TouchLeftof(newRectangle) && Impassable == true)
+            {
+                m_Pos.X = newRectangle.X - (rectangle.Width / 2) - 3;
+            }
+            if (rectangle.TouchRightof(newRectangle) && Impassable == true)
+            {
+                m_Pos.X = newRectangle.X + newRectangle.Width + (rectangle.Width / 2) + 3;
+
+            }
+            if (rectangle.TouchBottomof(newRectangle) && Impassable == true)
+            {
+                m_Pos.Y = newRectangle.Bottom + (rectangle.Height / 2) + 3;
+                Movement.Y = 0f;
+            }
         }
     }
 }

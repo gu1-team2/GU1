@@ -29,7 +29,7 @@ namespace Graded_Unit
     {
         Texture2D debugpixel;
 
-        GameStates CurrentState = GameStates.Start;
+        GameStates CurrentState = GameStates.Playing;
         Levels CurrentLevels = Levels.Level1;
 
         GraphicsDeviceManager graphics;
@@ -89,15 +89,16 @@ namespace Graded_Unit
             Tutorial.Generate(new int[,]
             {
                 {1,1,1,1,1,1,1,1,1,1,1,1},//1
-                {1,1,1,1,1,1,1,1,1,1,1,1},//2
-                {1,1,1,1,1,1,1,1,1,1,1,1},//3
-                {1,1,1,1,1,1,1,1,1,1,1,1},//4
-                {1,1,1,1,1,1,1,1,1,1,1,1},//5
-                {1,1,1,1,1,1,1,1,1,1,1,1},//6
-                {1,1,1,1,1,1,1,1,1,1,1,1},//7
-                {1,1,1,1,1,1,1,1,1,1,1,1},//8
-                {1,1,1,1,1,1,1,1,1,1,1,1},//9
-                {1,1,1,1,1,1,1,1,1,1,1,1},//10
+                {1,0,0,0,1,1,1,0,0,0,1,1},//2
+                {1,0,0,0,1,1,1,0,0,0,1,1},//3
+                {1,1,0,1,1,1,1,0,0,0,1,1},//4
+                {1,1,0,1,1,1,1,0,1,1,1,1},//5
+                {1,1,0,0,0,0,0,0,0,0,1,1},//6
+                {1,1,1,1,1,1,1,1,1,0,1,1},//7
+                {1,1,1,1,1,1,1,0,0,0,1,1},//8
+                {1,1,1,1,1,1,1,0,0,0,1,1},//9
+                {1,1,1,1,1,1,1,0,0,0,1,1},//10
+                {1,1,1,1,1,1,1,1,1,1,1,1},//11
 
             }, 160);
 
@@ -111,7 +112,7 @@ namespace Graded_Unit
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//1 should be all ones,       48 x 27 grid
                 {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//2
                 {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//3       2 sets the player start, put 2 back in when done
-                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//4
+                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//4       3 for block fills of ground
                 {1,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//5
                 {1,1,1,0,1,1,1,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//6
                 {1,1,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//7
@@ -151,6 +152,7 @@ namespace Graded_Unit
 
         protected override void Update(GameTime gameTime)
         {
+
             CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
 
             int state = Main.i;
@@ -163,7 +165,7 @@ namespace Graded_Unit
             switch (CurrentState)
             {
                 case GameStates.Start:
-                    Main.Draw();
+                    
                     Main.Update();
                     break;
 
@@ -174,10 +176,38 @@ namespace Graded_Unit
                 case GameStates.Playing:
                     player.Update(CurrPad);
                     //Pauses the game
-                    if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                    switch (CurrentLevels)
                     {
-                        CurrentState = GameStates.Pause;
+                        case Levels.Level0:
+                            if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                            {
+                                CurrentState = GameStates.Pause;
+                            }
+                            break;
+
+                        case Levels.Level1:
+                            if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                            {
+                                CurrentState = GameStates.Pause;
+                            }
+                            break;
+
+                        case Levels.Level2:
+                            if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                            {
+                                CurrentState = GameStates.Pause;
+                            }
+                            break;
+
+                        case Levels.Level3:
+                            if (CurrPad.Buttons.Start == ButtonState.Pressed && Oldpad.Buttons.Start == ButtonState.Released)
+                            {
+                                CurrentState = GameStates.Pause;
+                            }
+                            break;
                     }
+
+
                     break;
 
                 case GameStates.Pause:
@@ -229,20 +259,53 @@ namespace Graded_Unit
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(new Vector3(player.getPos().X, player.getPos().Y, 0)));
-
+            spriteBatch.Begin();
             switch (CurrentState)
             {
                 case GameStates.Start:
-                    
+
+                    Main.Draw();
                     break;
                 case GameStates.Instructions:
 
                     break;
-                case GameStates.Playing:
-                    Level1.Draw(spriteBatch);
+              
+            }
+            spriteBatch.End();
 
-                    player.Draw(spriteBatch, debugpixel);
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(new Vector3(player.getPos().X, player.getPos().Y, 0)));
+
+            switch (CurrentState)
+            {
+               
+                case GameStates.Playing:
+
+                    switch (CurrentLevels)
+                    {
+                        case Levels.Level0:
+
+                            Tutorial.Draw(spriteBatch);
+
+                            player.Draw(spriteBatch, debugpixel);
+
+                            break;
+
+                        case Levels.Level1:
+
+                            Level1.Draw(spriteBatch);
+
+                            player.Draw(spriteBatch, debugpixel);
+
+                            break;
+
+                        case Levels.Level2:
+
+                            break;
+                        case Levels.Level3:
+
+                            break;
+                    }
+
 
 
 

@@ -30,7 +30,7 @@ namespace Graded_Unit
 
         private Texture2D Background;
         private SpriteFont MenuFont;
-        private GamePadState CurrPad;       //usual declarations
+        private GamePadState CurrPad,Oldpad;       //usual declarations
         private SpriteBatch sb;
         private GraphicsDeviceManager gdm;
 
@@ -39,10 +39,24 @@ namespace Graded_Unit
 
         public Main_Menu(SpriteBatch S, GraphicsDeviceManager G)
         {
-            switch(Highlighted)
+ 
+            i = (int)Selection.Play;
+            Background = Content.Load<Texture2D>("background");
+            MenuFont = Content.Load<SpriteFont>("File");
+            sb = S;
+            gdm = G;
+        }
+        public int ReturnSelection() // Function returns value of i to hook into Game1
+        {
+            return i;
+        }
+
+        public void Update() //Updates the selection when the gamepad is pressed
+        {
+            switch (Highlighted)
             {
                 case Selection.Play:
-                    DisplayedText = ("Info" + Environment.NewLine + "Play" +Environment.NewLine + "Exit");
+                    DisplayedText = ("Info" + Environment.NewLine + "Play" + Environment.NewLine + "Exit");
                     break;
 
                 case Selection.Info:
@@ -55,23 +69,11 @@ namespace Graded_Unit
 
             }
 
-            i = (int)Selection.Play;
-            Background = Content.Load<Texture2D>("background");
-            MenuFont = Content.Load<SpriteFont>("");
-            sb = S;
-        }
-        public int ReturnSelection() // Function returns value of i to hook into Game1
-        {
-            return i;
-        }
-
-        public void Update() //Updates the selection when the gamepad is pressed
-        {
             CurrPad = GamePad.GetState(PlayerIndex.One);
-            if (CurrPad.DPad.Up == ButtonState.Pressed)
+            if (CurrPad.DPad.Up == ButtonState.Pressed && Oldpad.DPad.Up == ButtonState.Released)
                 i++;
 
-            if (CurrPad.DPad.Down == ButtonState.Pressed)
+            if (CurrPad.DPad.Down == ButtonState.Pressed && Oldpad.DPad.Down == ButtonState.Released)
                 i--;
 
             if (i == 0)
@@ -84,16 +86,18 @@ namespace Graded_Unit
             if (i > 2)
                 i = 0;
 
-            if (CurrPad.Buttons.A == ButtonState.Pressed) //Calls ReturnSelection to return i into Game1
+            if (CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released) //Calls ReturnSelection to return i into Game1
             {
                 ReturnSelection();
             }
+            Oldpad = CurrPad;
         }
 
         public void Draw() //Draws the menu assets
         {
             sb.Draw(Background, new Rectangle(0, 0, gdm.PreferredBackBufferWidth, gdm.PreferredBackBufferHeight), Color.White);
-            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 100), Color.White);
+            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 100), Color.Black);
+
         }
     }
 }

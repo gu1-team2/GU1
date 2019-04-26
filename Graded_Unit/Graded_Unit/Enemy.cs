@@ -35,15 +35,17 @@ namespace Graded_Unit
         {
             switch (EnemyVariation)
             {
+
                 case Type.Moving:
-
+                    Texture = Content.Load<Texture2D>("");
                     break;
-                case Type.Stationary:
 
+                case Type.Stationary:
+                    Texture = Content.Load<Texture2D>("");
                     break;
             }
 
-            Texture = Content.Load<Texture2D>("");
+
             BulletTexture = Content.Load<Texture2D>("");
             Position = new Vector2(X, Y);
             Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
@@ -57,7 +59,7 @@ namespace Graded_Unit
                     {
                         if (Collision.Intersects(Tile.Rectangle))
                         {
-                            Position = new Vector2(RNG.Next(0, Tile.Rectangle.Width * 11), RNG.Next(0, Tile.Rectangle.Height * 11)); // the number is the number of tiles in both the x and y direction
+                            Position = new Vector2(RNG.Next(0, Tile.Rectangle.Width * 11), RNG.Next(0, Tile.Rectangle.Height * 10)); // the number is the number of tiles in both the x and y direction
                             Collision = new Rectangle(X - Texture.Width / 2, Y - Texture.Height / 2, Texture.Width, Texture.Height);
                         }
                     }
