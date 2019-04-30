@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 
 enum GameStates
 {
@@ -41,9 +42,10 @@ namespace Graded_Unit
 
         Map Tutorial, Level1, Level2, Level3;
 
-        int timer;
+        int timer, MaxEnemies;
 
         Main_Menu Main;
+        List<Enemy> Enemies;
 
         public Game1()
         {
@@ -64,8 +66,8 @@ namespace Graded_Unit
             Level1 = new Map();
             Level2 = new Map();
             Level3 = new Map();
-
-            
+            MaxEnemies = RNG.Next(20, 35);
+            Enemies = new List<Enemy>();
 
             base.Initialize();
         }
@@ -82,7 +84,7 @@ namespace Graded_Unit
             Main_Menu.Content = Content;
             Player.Content = Content;
 
-            Main = new Main_Menu(spriteBatch,graphics);
+            Main = new Main_Menu(spriteBatch, graphics);
 
 
 
@@ -111,8 +113,8 @@ namespace Graded_Unit
 
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//1 should be all ones,       48 x 27 grid
                 {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//2
-                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//3       2 sets the player start, put 2 back in when done
-                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//4       3 for block fills of ground
+                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//3       2 for block fills on the ground
+                {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//4       
                 {1,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//5
                 {1,1,1,0,1,1,1,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//6
                 {1,1,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//7
@@ -140,7 +142,12 @@ namespace Graded_Unit
             }, 160);
 
 
-            player = new Player(3, Level1.CollisionTiles,graphics.PreferredBackBufferWidth,graphics.PreferredBackBufferHeight); // CHANGE THE LIST WHEN FINISHED 
+            player = new Player(3, Level1.CollisionTiles, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight); // CHANGE THE LIST WHEN FINISHED 
+
+            for (int i = 0; i < MaxEnemies; i++)
+            {
+                Enemies.Add(new Enemy(RNG, Tutorial.Width, Tutorial.Height, Tutorial.CollisionTiles));
+            }
 
             // TODO: use this.Content to load your game content here
         }
@@ -165,7 +172,7 @@ namespace Graded_Unit
             switch (CurrentState)
             {
                 case GameStates.Start:
-                    
+
                     Main.Update();
                     break;
 
@@ -224,18 +231,18 @@ namespace Graded_Unit
                     switch (CurrentLevels)
                     {
                         case Levels.Level0:
-                            player.ResetPlayer(Level1.CollisionTiles);
+                            SwitchMap(Level1);
                             CurrentLevels = Levels.Level1;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
 
                             break;
                         case Levels.Level1:
-                            player.ResetPlayer(Level2.CollisionTiles);
+                            SwitchMap(Level2);
                             CurrentLevels = Levels.Level2;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
                             break;
                         case Levels.Level2:
-                            player.ResetPlayer(Level3.CollisionTiles);
+                            SwitchMap(Level3);
                             CurrentLevels = Levels.Level3;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
                             break;
@@ -259,7 +266,7 @@ namespace Graded_Unit
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(); //this is specfically for drawing the menu stuff
             switch (CurrentState)
             {
                 case GameStates.Start:
@@ -269,7 +276,7 @@ namespace Graded_Unit
                 case GameStates.Instructions:
 
                     break;
-              
+
             }
             spriteBatch.End();
 
@@ -277,7 +284,7 @@ namespace Graded_Unit
 
             switch (CurrentState)
             {
-               
+
                 case GameStates.Playing:
 
                     switch (CurrentLevels)
@@ -286,15 +293,11 @@ namespace Graded_Unit
 
                             Tutorial.Draw(spriteBatch);
 
-                            player.Draw(spriteBatch, debugpixel);
-
                             break;
 
                         case Levels.Level1:
 
                             Level1.Draw(spriteBatch);
-
-                            player.Draw(spriteBatch, debugpixel);
 
                             break;
 
@@ -306,13 +309,45 @@ namespace Graded_Unit
                             break;
                     }
 
-
+                    foreach (Enemy enemy in Enemies)
+                    {
+                        enemy.Draw(spriteBatch);
+                    }
+                    player.Draw(spriteBatch, debugpixel);
 
 
                     break;
-                case GameStates.Pause:
+                case GameStates.Pause: // Keeps eveything drawing whilst not updating
 
+                    switch (CurrentLevels)
+                    {
+                        case Levels.Level0:
+
+                            Tutorial.Draw(spriteBatch);
+
+                            break;
+
+                        case Levels.Level1:
+
+                            Level1.Draw(spriteBatch);
+
+                            break;
+
+                        case Levels.Level2:
+
+                            break;
+                        case Levels.Level3:
+
+                            break;
+                    }
+
+                    foreach (Enemy enemy in Enemies)
+                    {
+                        enemy.Draw(spriteBatch);
+                    }
                     player.Draw(spriteBatch, debugpixel);
+
+
                     break;
             }
 
@@ -321,6 +356,15 @@ namespace Graded_Unit
 
             base.Draw(gameTime);
         }
-
+        void SwitchMap(Map Current)
+        {
+            Enemies.Clear();
+            MaxEnemies = RNG.Next(25, 40);
+            for (int i = 0; i < MaxEnemies; i++)
+            {
+                Enemies.Add(new Enemy(RNG, Current.Width, Current.Height, Current.CollisionTiles));
+            }
+            player = new Player(3, Current.CollisionTiles, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+        }
     }
 }

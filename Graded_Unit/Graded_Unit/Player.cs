@@ -150,17 +150,6 @@ namespace Graded_Unit
             return new Vector2(-m_Pos.X + 960, -m_Pos.Y + 540);
         }
 
-        public void ResetPlayer(List<CollisionTiles> Tiles)
-        {
-            foreach (CollisionTiles Tile in Tiles)
-            {
-                if (Tile.START)
-                {
-                    m_Pos = new Vector2(Tile.Rectangle.X, Tile.Rectangle.Y);
-                }
-            }
-            tiles = Tiles;
-        }
         public void Collision(Rectangle newRectangle, bool Impassable)
         {
             if (rectangle.TouchTopof(newRectangle) && Impassable == true)
