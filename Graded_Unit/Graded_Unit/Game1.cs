@@ -45,7 +45,6 @@ namespace Graded_Unit
 
         int MinEnemies, MaxEnemies;
 
-        float TIMER = 0;
 
         Main_Menu Main;
         List<Enemy> Enemies;
@@ -330,10 +329,6 @@ namespace Graded_Unit
                     break;
             }
 
-
-
-            TIMER -= gameTime.ElapsedGameTime.Milliseconds;
-            Console.WriteLine(TIMER);
 
             Oldpad = CurrPad;
             base.Update(gameTime);

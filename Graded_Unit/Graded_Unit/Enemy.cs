@@ -49,7 +49,6 @@ namespace Graded_Unit
             Rotation = 0;
             Scale = 1;
             CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
-            Detection = new Rectangle((int)Position.X, (int)Position.Y - Texture.Height / 2, 300, Texture.Height);
 
             S = R.Next(0, 4);
 
@@ -83,7 +82,7 @@ namespace Graded_Unit
             {
                 if (CollisionRect.Intersects(Tile.Rectangle))
                 {
-                    Position = new Vector2(R.Next(0, Width), R.Next(0, Height)); // the number is the number of tiles in both the x and y direction
+                    Position = new Vector2(R.Next(160, Width - 160), R.Next(160, Height - 160)); // the number is the number of tiles in both the x and y direction
                     CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
                 }
             }
@@ -96,41 +95,80 @@ namespace Graded_Unit
             {
                 case Type.Stationary: //doesn't move but rather rotates every so often
 
+                    foreach(CollisionTiles tile in Tiles)
+                    {
 
+                    }
 
                     break;
                 // movements from here
+
                 case Type.MovingUp:
                     Position.Y -= Speed;
+                    Detection = new Rectangle((int)Position.X - (Texture.Width / 2), (int)Position.Y - Texture.Height/2 - 300, Texture.Width, 300);
+
+                    foreach (CollisionTiles tile in Tiles)
+                    {
+                        if (CollisionRect.Top <= tile.Rectangle.Bottom && CollisionRect.Bottom >= tile.Rectangle.Bottom && tile.IMPASSABLE && tile.Rectangle.Intersects(CollisionRect))
+                        {
+                            Position.Y = (tile.Rectangle.Y + tile.Rectangle.Height) + (CollisionRect.Height / 2) - Speed;
+                            EnemyMovement = Type.MovingDown;
+                        }
+                    }
                     break;
 
                 case Type.MovingLeft:
                     Position.X -= Speed;
+                    Detection = new Rectangle((int)Position.X - 300 - (Texture.Width / 2), (int)Position.Y - Texture.Height / 2, 300, Texture.Height);
+                    foreach (CollisionTiles tile in Tiles)
+                    {
+                        if (CollisionRect.Left <= tile.Rectangle.Right && CollisionRect.Right >= tile.Rectangle.Right && tile.IMPASSABLE && tile.Rectangle.Intersects(CollisionRect))
+                        {
+
+                            Position.X = (tile.Rectangle.X + tile.Rectangle.Width) + (CollisionRect.Width / 2) - Speed;
+                            EnemyMovement = Type.MovingRight;
+                        }
+                    }
                     break;
 
                 case Type.MovingRight:
                     Position.X += Speed;
+                    Detection = new Rectangle((int)Position.X + Texture.Width / 2, (int)Position.Y - Texture.Height / 2, 300, Texture.Height);
+                    foreach (CollisionTiles tile in Tiles)
+                    {
+                        if (CollisionRect.Right >= tile.Rectangle.Left && CollisionRect.Left <= tile.Rectangle.Left && tile.IMPASSABLE && tile.Rectangle.Intersects(CollisionRect))
+                        {
+                            Position.X = tile.Rectangle.X - (CollisionRect.Width / 2) - Speed;
+                            EnemyMovement = Type.MovingLeft;
+                        }
+                    }
                     break;
 
                 case Type.MovingDown:
                     Position.Y += Speed;
+                    Detection = new Rectangle((int)Position.X - (Texture.Width / 2), (int)Position.Y + Texture.Height / 2, Texture.Width, 300);
+                    foreach (CollisionTiles tile in Tiles)
+                    {
+                        if (CollisionRect.Bottom >= tile.Rectangle.Top && CollisionRect.Top <= tile.Rectangle.Top && tile.IMPASSABLE && tile.Rectangle.Intersects(CollisionRect))
+                        {
+                            Position.Y = tile.Rectangle.Y - (CollisionRect.Height / 2) - Speed;
+                            EnemyMovement = Type.MovingUp;
+
+                        }
+                    }
                     break;
             }
 
 
 
-
-            foreach (CollisionTiles tile in Tiles)
-            {
-                Collision(tile.Rectangle, tile.IMPASSABLE); //this for checking the enemy Collision with the tiles
-            }
-
             CollisionRect.X = (int)Position.X - Texture.Width / 2;
             CollisionRect.Y = (int)Position.Y - Texture.Width / 2;
+            
         }
         public void Draw(SpriteBatch SB)
         {
             SB.Draw(Texture, Position, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0f);
+            SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
 
             switch (EnemyMovement)
             {
@@ -171,7 +209,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingRight;
                 }
-                Position.Y = newRectangle.Y - (CollisionRect.Height / 2) - Speed;
+
             }
             if (CollisionRect.TouchLeftof(newRectangle) && Impassable == true)
             {
@@ -188,7 +226,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingDown;
                 }
-                Position.X = newRectangle.X - (CollisionRect.Width / 2) - Speed;
+
             }
             if (CollisionRect.TouchRightof(newRectangle) && Impassable == true)
             {
@@ -205,7 +243,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingDown;
                 }
-                Position.X = (newRectangle.X + newRectangle.Width) + (CollisionRect.Width / 2) - Speed;
+
 
             }
             if (CollisionRect.TouchBottomof(newRectangle) && Impassable == true)
@@ -223,7 +261,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingRight;
                 }
-                Position.Y = (newRectangle.Y + newRectangle.Height) + (CollisionRect.Height / 2) - Speed;
+
 
             }
         }
