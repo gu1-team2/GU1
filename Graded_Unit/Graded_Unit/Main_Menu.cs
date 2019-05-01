@@ -51,8 +51,9 @@ namespace Graded_Unit
                 return i;
         }
 
-        public void Update() //Updates the selection when the gamepad is pressed
+        public void Update(GamePadState CURRPAD) //Updates the selection when the gamepad is pressed
         {
+            CurrPad = CURRPAD;
             switch (Highlighted)
             {
                 case Selection.Play:
@@ -69,7 +70,7 @@ namespace Graded_Unit
 
             }
 
-            CurrPad = GamePad.GetState(PlayerIndex.One);
+            
             if (CurrPad.DPad.Up == ButtonState.Pressed && Oldpad.DPad.Up == ButtonState.Released)
                 i++;
 
@@ -85,7 +86,8 @@ namespace Graded_Unit
 
             if (i > 2)
                 i = 0;
-
+            if (i < 0)
+                i = 2;
             Oldpad = CurrPad;
         }
 

@@ -215,7 +215,7 @@ namespace Graded_Unit
 
             player = new Player(3, Level1.CollisionTiles, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight); // CHANGE THE LIST WHEN FINISHED 
 
-            for (int i = 0; i < RNG.Next(MinEnemies,MaxEnemies); i++)
+            for (int i = 0; i < RNG.Next(MinEnemies, MaxEnemies); i++)
             {
                 Enemies.Add(new Enemy(RNG, Level1.Width, Level1.Height, Level1.CollisionTiles));
             }
@@ -242,9 +242,9 @@ namespace Graded_Unit
             {
                 case GameStates.Start:
 
-                    Main.Update();
-                    //if (CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released)
-                    if (Keyboard.GetState().IsKeyDown(Keys.A)) //for debug puporses currently
+                    Main.Update(CurrPad);
+                    //if (Keyboard.GetState().IsKeyDown(Keys.A)) //for debug puporses currently
+                    if (CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released)
                     {
                         if (Main.ReturnSelection() == 0)
                             CurrentState = GameStates.Playing;
@@ -265,7 +265,7 @@ namespace Graded_Unit
 
                 case GameStates.Playing:
                     player.Update(CurrPad);
-                    foreach(Enemy enemy in Enemies)
+                    foreach (Enemy enemy in Enemies)
                     {
                         enemy.Update();
                     }
@@ -318,18 +318,18 @@ namespace Graded_Unit
                     switch (CurrentLevels)
                     {
                         case Levels.Level0:
-                            SwitchMap(Level1,MinEnemies,MaxEnemies);
+                            SwitchMap(Level1, MinEnemies, MaxEnemies);
                             CurrentLevels = Levels.Level1;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
 
                             break;
                         case Levels.Level1:
-                            SwitchMap(Level2,MinEnemies,MaxEnemies);
+                            SwitchMap(Level2, MinEnemies, MaxEnemies);
                             CurrentLevels = Levels.Level2;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
                             break;
                         case Levels.Level2:
-                            SwitchMap(Level3,MinEnemies,MaxEnemies);
+                            SwitchMap(Level3, MinEnemies, MaxEnemies);
                             CurrentLevels = Levels.Level3;
                             CurrentState = GameStates.Playing; //always at the end so it goes back to playing
                             break;
