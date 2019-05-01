@@ -36,21 +36,24 @@ namespace Graded_Unit
         List<Bullet> En_Bullets;
         List<CollisionTiles> Tiles;
 
-        public Enemy(Random rng, int Width, int Height, List<CollisionTiles> Tiles)
+        public Enemy(Random rng, int Width, int Height, List<CollisionTiles> tiles)
         {
-            Texture = Content.Load<Texture2D>("");
-            MovingTexture = Content.Load<Texture2D>("");
 
-            BulletTexture = Content.Load<Texture2D>("");
-            Position = new Vector2(R.Next(0, Width), R.Next(0, Height));
+            R = rng;
+            Texture = Content.Load<Texture2D>("Tile1");
+            MovingTexture = Content.Load<Texture2D>("Tile1");
+
+            BulletTexture = Content.Load<Texture2D>("Bullet");
+            Position = new Vector2(R.Next(160, Width - 160), R.Next(160, Height - 160));
             Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
             Rotation = 0;
             Scale = 1;
             CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
-            Detection = new Rectangle((int)Position.X,(int)Position.Y - Texture.Height /2,300,Texture.Height);
+            Detection = new Rectangle((int)Position.X, (int)Position.Y - Texture.Height / 2, 300, Texture.Height);
 
             S = R.Next(0, 4);
 
+            Tiles = tiles;
 
             // decides what state each enemy will be in when it starts 
             if (S == 0)
@@ -96,7 +99,7 @@ namespace Graded_Unit
 
 
                     break;
-
+                // movements from here
                 case Type.MovingUp:
                     Position.Y -= Speed;
                     break;
@@ -121,12 +124,34 @@ namespace Graded_Unit
             {
                 Collision(tile.Rectangle, tile.IMPASSABLE); //this for checking the enemy Collision with the tiles
             }
+
             CollisionRect.X = (int)Position.X - Texture.Width / 2;
             CollisionRect.Y = (int)Position.Y - Texture.Width / 2;
         }
         public void Draw(SpriteBatch SB)
         {
             SB.Draw(Texture, Position, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0f);
+
+            switch (EnemyMovement)
+            {
+                case Type.MovingUp:
+                    SB.Draw(Texture, CollisionRect, Color.Green * 0.5f);
+                    break;
+
+                case Type.MovingLeft:
+                    SB.Draw(Texture, CollisionRect, Color.Blue * 0.5f);
+                    break;
+
+                case Type.MovingRight:
+                    SB.Draw(Texture, CollisionRect, Color.Red * 0.5f);
+                    break;
+
+                case Type.MovingDown:
+                    SB.Draw(Texture, CollisionRect, Color.Yellow * 0.5f);
+                    break;
+            }
+            SB.Draw(Content.Load<Texture2D>("pixel"), new Rectangle((int)Position.X - 1, (int)Position.Y - 1, 3, 3), Color.Black);
+
         }
 
         public void Collision(Rectangle newRectangle, bool Impassable)
@@ -180,7 +205,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingDown;
                 }
-                Position.X = newRectangle.X + (CollisionRect.Width / 2) + Speed;
+                Position.X = (newRectangle.X + newRectangle.Width) + (CollisionRect.Width / 2) - Speed;
 
             }
             if (CollisionRect.TouchBottomof(newRectangle) && Impassable == true)
@@ -198,7 +223,7 @@ namespace Graded_Unit
                 {
                     EnemyMovement = Type.MovingRight;
                 }
-                Position.Y = newRectangle.Y + (CollisionRect.Height / 2) + Speed;
+                Position.Y = (newRectangle.Y + newRectangle.Height) + (CollisionRect.Height / 2) - Speed;
 
             }
         }
