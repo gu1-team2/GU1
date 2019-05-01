@@ -31,7 +31,7 @@ namespace Graded_Unit
     {
         Texture2D debugpixel;
 
-        GameStates CurrentState = GameStates.Playing;
+        GameStates CurrentState = GameStates.Start;
         Levels CurrentLevels = Levels.Level1;
 
         GraphicsDeviceManager graphics;
@@ -234,8 +234,6 @@ namespace Graded_Unit
 
             CurrPad = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.None);
 
-            int state = Main.i;
-
             if (CurrPad.Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -246,6 +244,16 @@ namespace Graded_Unit
                 case GameStates.Start:
 
                     Main.Update();
+                    //if (CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released)
+                    if (Keyboard.GetState().IsKeyDown(Keys.A)) //for debug puporses currently
+                    {
+                        if (Main.ReturnSelection() == 0)
+                            CurrentState = GameStates.Playing;
+                        else if (Main.ReturnSelection() == 1)
+                            CurrentState = GameStates.Instructions;
+                        else if (Main.ReturnSelection() == 2)
+                            Exit();
+                    }
                     break;
 
                 case GameStates.Instructions:
