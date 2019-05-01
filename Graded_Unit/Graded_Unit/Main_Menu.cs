@@ -46,9 +46,9 @@ namespace Graded_Unit
             sb = S;
             gdm = G;
         }
-        public int ReturnSelection() // Function returns value of i to hook into Game1
+        public int ReturnSelection()
         {
-            return i;
+                return i;
         }
 
         public void Update() //Updates the selection when the gamepad is pressed
@@ -86,10 +86,6 @@ namespace Graded_Unit
             if (i > 2)
                 i = 0;
 
-            if (CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released) //Calls ReturnSelection to return i into Game1
-            {
-                ReturnSelection();
-            }
             Oldpad = CurrPad;
         }
 

@@ -115,3 +115,34 @@ E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.cspro
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\background.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Bullet.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\File.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Gun.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\pixel.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile1.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.exe
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.pdb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csprojAssemblyReference.cache
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CoreCompileInputs.cache
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
