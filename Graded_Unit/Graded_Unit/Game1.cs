@@ -47,6 +47,7 @@ namespace Graded_Unit
 
 
         Main_Menu Main;
+        PauseScreen Pausing;
         List<Enemy> Enemies;
 
         public Game1()
@@ -85,9 +86,11 @@ namespace Graded_Unit
             CollisionTiles.Content = Content; // This allows for the textures to be loaded into the class directly
             Enemy.Content = Content;
             Main_Menu.Content = Content;
+            PauseScreen.Content = Content;
             Player.Content = Content;
 
             Main = new Main_Menu(spriteBatch, graphics);
+            Pausing = new PauseScreen(spriteBatch, GraphicsDevice);
 
 
 
@@ -431,7 +434,7 @@ namespace Graded_Unit
                     }
                     player.Draw(spriteBatch, debugpixel);
 
-
+                    Pausing.Draw();
                     break;
             }
 

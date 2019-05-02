@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/background.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/pixel.png</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/background.png</File>
+    <File>D:/Tunnel Rats Repo/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

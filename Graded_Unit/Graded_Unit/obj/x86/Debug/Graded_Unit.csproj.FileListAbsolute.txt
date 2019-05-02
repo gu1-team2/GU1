@@ -146,3 +146,34 @@ C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Bullet.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile1.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\pixel.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Gun.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\File.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\background.xnb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.exe
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.pdb
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csprojAssemblyReference.cache
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CoreCompileInputs.cache
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
+D:\Tunnel Rats Repo\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
