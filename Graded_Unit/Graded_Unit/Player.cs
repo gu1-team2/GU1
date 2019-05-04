@@ -73,7 +73,7 @@ namespace Graded_Unit
                 m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
             }
 
-            if(m_CurrentState.Buttons.RightStick == ButtonState.Pressed)
+            if (m_CurrentState.Buttons.RightStick == ButtonState.Pressed)
             {
 
             }
@@ -117,7 +117,7 @@ namespace Graded_Unit
                 {
                     Bullets.RemoveAt(i);
                 }
-                if (Bullets[i].Collision.Y > (m_Pos.Y + 540) || Bullets[i].Collision.Y < (m_Pos.Y - 540))
+                else if (Bullets[i].Collision.Y > (m_Pos.Y + 540) || Bullets[i].Collision.Y < (m_Pos.Y - 540))
                 {
                     Bullets.RemoveAt(i);
                 }

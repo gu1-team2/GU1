@@ -4,11 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/background.png</File>
-    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/background.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile2.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-1.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-2.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-3.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-4.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-5.png</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/PlayerAim.png</File>
   </SourceFiles>
 </SourceFileCollection>

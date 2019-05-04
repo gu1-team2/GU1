@@ -146,3 +146,35 @@ C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
 C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile1.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\pixel.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Bullet.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Gun.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\background.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\File.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile2.xnb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.exe
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Graded_Unit.pdb
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csprojAssemblyReference.cache
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CoreCompileInputs.cache
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
+F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
