@@ -20,7 +20,7 @@ namespace Graded_Unit
 
         Texture2D m_txr, BulletTxr;
         SoundEffect BulletSound;
-        Rectangle rectangle, HudLeft, HudRight;
+        Rectangle rectangle, CollisionRect, HudLeft, HudRight,Visibility;
         Vector2 m_Origin;
         public Vector2 m_Pos;
         Vector2 Movement;
@@ -36,15 +36,20 @@ namespace Graded_Unit
 
         public Player(int S, List<CollisionTiles> TILES, int screenWidth, int screenHeight)
         {
-            m_txr = Content.Load<Texture2D>("Tile1");
+            m_txr = Content.Load<Texture2D>("PlayerAim");
             BulletTxr = Content.Load<Texture2D>("Bullet");
             BulletSound = Content.Load<SoundEffect>("Gun");
             tiles = TILES;
+            //move the 4 below into the for each statement
             m_Pos = new Vector2(400, 400);
             rectangle = new Rectangle(400, 400, m_txr.Width, m_txr.Height);
+            CollisionRect = new Rectangle(400, 400, 50, 50);
+            Visibility = new Rectangle((int)m_Pos.X,(int)m_Pos.Y,320,320);
+            //stop here
+
             Width = screenWidth;
             Height = screenHeight;
-            HudLeft = new Rectangle((int)m_Pos.X - (Width / 2), (int)m_Pos.Y - (Height / 2), 400, 200);
+            HudLeft = new Rectangle((int)m_Pos.X - (Width / 2), (int)m_Pos.Y - (Height / 2), 400, 200); // I think I know how to get this to work
 
             foreach (CollisionTiles tile in tiles)
             {
@@ -57,7 +62,7 @@ namespace Graded_Unit
 
             m_Origin = new Vector2(m_txr.Width / 2, m_txr.Height / 2);
 
-            m_Scale = 1;
+            m_Scale = 0.66f;
 
             speed = S;
         }
@@ -96,7 +101,10 @@ namespace Graded_Unit
             {
 
                 Collision(tile.Rectangle, tile.IMPASSABLE);
-
+                if (Visibility.Intersects(tile.Rectangle))
+                {
+                    tile.VISITED = true;
+                }
                 //end of player collision with the walls
 
                 //remove a bullet whenever it hits a wall
@@ -125,12 +133,22 @@ namespace Graded_Unit
             }
 
 
+
+
             m_Pos.X += Movement.X;
             m_Pos.Y -= Movement.Y;
+
             rectangle.X = (int)m_Pos.X - m_txr.Width / 2;
             rectangle.Y = (int)m_Pos.Y - m_txr.Height / 2;
-            HudLeft.X = (int)m_Pos.X - (Width / 2);
-            HudLeft.Y = (int)m_Pos.Y - (Height / 2);
+
+            CollisionRect.X = (int)m_Pos.X - CollisionRect.Width/2;
+            CollisionRect.Y = (int)m_Pos.Y -CollisionRect.Height/2  ;
+
+            Visibility.X = (int)m_Pos.X - Visibility.Width / 2;
+            Visibility.Y = (int)m_Pos.Y - Visibility.Height / 2;
+
+            //HudLeft.X = (int)m_Pos.X - (Width / 2);
+            //HudLeft.Y = (int)m_Pos.Y - (Height / 2);
 
             OldState = m_CurrentState; //Always at the end of update
 
@@ -143,8 +161,8 @@ namespace Graded_Unit
             {
                 bullet.Draw(sb);
             }
-            sb.Draw(m_txr, m_Pos, null, Color.Red, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
-            sb.Draw(px, rectangle, Color.Blue * 0.75f);
+            sb.Draw(m_txr, m_Pos, null, Color.White, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
+            sb.Draw(px, Visibility, Color.Blue * 0.75f);
             sb.Draw(px, new Rectangle((int)m_Pos.X - 1, (int)m_Pos.Y - 1, 3, 3), Color.Yellow);
         }
 
@@ -155,25 +173,64 @@ namespace Graded_Unit
 
         public void Collision(Rectangle newRectangle, bool Impassable)
         {
-            if (rectangle.TouchTopof(newRectangle) && Impassable == true)
+            if (CollisionRect.TouchTopof(newRectangle) && Impassable == true)
             {
-                m_Pos.Y = newRectangle.Y - (rectangle.Height / 2) - 3;
+                m_Pos.Y = newRectangle.Y - (CollisionRect.Height / 2) - 3;
                 Movement.Y = 0f;
             }
-            if (rectangle.TouchLeftof(newRectangle) && Impassable == true)
+            if (CollisionRect.TouchLeftof(newRectangle) && Impassable == true)
             {
-                m_Pos.X = newRectangle.X - (rectangle.Width / 2) - 3;
+                m_Pos.X = newRectangle.X - (CollisionRect.Width / 2) - 3;
             }
-            if (rectangle.TouchRightof(newRectangle) && Impassable == true)
+            if (CollisionRect.TouchRightof(newRectangle) && Impassable == true)
             {
-                m_Pos.X = newRectangle.X + newRectangle.Width + (rectangle.Width / 2) + 3;
+                m_Pos.X = newRectangle.X + newRectangle.Width + (CollisionRect.Width / 2) + 3;
 
             }
-            if (rectangle.TouchBottomof(newRectangle) && Impassable == true)
+            if (CollisionRect.TouchBottomof(newRectangle) && Impassable == true)
             {
-                m_Pos.Y = newRectangle.Bottom + (rectangle.Height / 2) + 3;
+                m_Pos.Y = newRectangle.Bottom + (CollisionRect.Height / 2) + 3;
                 Movement.Y = 0f;
             }
         }
     }
+
+    /*
+░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄
+░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄
+░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█
+░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█
+░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█
+█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█
+█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█
+░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█
+░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█
+░░░█░░██░░▀█▄▄▄█▄▄█▄████░█
+░░░░█░░░▀▀▄░█░░░█░███████░█
+░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█
+░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█
+░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█
+░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█
+ * 
+ * 
+ * 
+　　██░▀██████████████▀░██
+　　█▌▒▒░████████████░▒▒▐█
+　　█░▒▒▒░██████████░▒▒▒░█
+　　▌░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▐
+　　░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
+　 ███▀▀▀██▄▒▒▒▒▒▒▒▄██▀▀▀██
+　 ██░░░▐█░▀█▒▒▒▒▒█▀░█▌░░░█
+　 ▐▌░░░▐▄▌░▐▌▒▒▒▐▌░▐▄▌░░▐▌
+　　█░░░▐█▌░░▌▒▒▒▐░░▐█▌░░█
+　　▒▀▄▄▄█▄▄▄▌░▄░▐▄▄▄█▄▄▀▒
+　　░░░░░░░░░░└┴┘░░░░░░░░░
+　　██▄▄░░░░░░░░░░░░░░▄▄██
+　　████████▒▒▒▒▒▒████████
+　　█▀░░███▒▒░░▒░░▒▀██████
+　　█▒░███▒▒╖░░╥░░╓▒▐█████
+　　█▒░▀▀▀░░║░░║░░║░░█████
+　　██▄▄▄▄▀▀┴┴╚╧╧╝╧╧╝┴┴███
+　　██████████████████████
+ */
 }

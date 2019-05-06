@@ -32,7 +32,7 @@ namespace Graded_Unit
         Texture2D debugpixel;
 
         GameStates CurrentState = GameStates.Playing;
-        Levels CurrentLevels = Levels.Level1;
+        Levels CurrentLevels = Levels.Level0;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -69,8 +69,8 @@ namespace Graded_Unit
             Level1 = new Map();
             Level2 = new Map();
             Level3 = new Map();
-            MinEnemies = 20;
-            MaxEnemies = 40;
+            MinEnemies = 2;
+            MaxEnemies = 4;
             Enemies = new List<Enemy>();
 
             base.Initialize();
@@ -216,11 +216,12 @@ namespace Graded_Unit
 
             }, 160);
 
-            player = new Player(3, Level1.CollisionTiles, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight); // CHANGE THE LIST WHEN FINISHED 
+            player = new Player(3, Tutorial.CollisionTiles, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight); // CHANGE THE LIST WHEN FINISHED 
 
             for (int i = 0; i < RNG.Next(MinEnemies, MaxEnemies); i++)
             {
-                Enemies.Add(new Enemy(RNG, Level1.Width, Level1.Height, Level1.CollisionTiles));
+                Enemies.Add(new Enemy(RNG, Tutorial.Width, Tutorial.Height, Tutorial.CollisionTiles));
+
             }
 
             // TODO: use this.Content to load your game content here
@@ -270,7 +271,7 @@ namespace Graded_Unit
                     player.Update(CurrPad);
                     foreach (Enemy enemy in Enemies)
                     {
-                        enemy.Update();
+                        enemy.Update(gameTime);
                     }
                     //Pauses the game
                     switch (CurrentLevels)

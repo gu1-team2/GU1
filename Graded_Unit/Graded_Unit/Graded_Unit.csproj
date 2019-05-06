@@ -46,6 +46,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Objects.cs" />
     <Compile Include="PauseScreen.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

@@ -27,11 +27,18 @@ namespace Graded_Unit
             set { content = value; }
         }
 
-        public bool IMPASSABLE,EXIT,START;
+        public bool IMPASSABLE, EXIT, START, VISITED;
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, rectangle, Color.White);
+            if (VISITED)
+            {
+                spriteBatch.Draw(texture, rectangle, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(texture, rectangle, Color.White * 0.1f);
+            }
 
         }
     }
@@ -42,15 +49,15 @@ namespace Graded_Unit
         {
             texture = Content.Load<Texture2D>("Tile" + i);
             this.Rectangle = newRectangle;
-
-            if(i == 1)
+            VISITED = false;
+            if (i == 1)
             {
                 IMPASSABLE = true;
             }
-            if(i == 2)
+            if (i == 2)
             {
                 START = true;
             }
         }
-    } 
+    }
 }

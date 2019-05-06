@@ -178,3 +178,10 @@ F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.cspro
 F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.csproj.CopyComplete
 F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.exe
 F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\obj\x86\Debug\Graded_Unit.pdb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile2.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-1.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-2.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-3.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-4.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-5.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\PlayerAim.xnb
