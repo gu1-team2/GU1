@@ -435,12 +435,23 @@ namespace Graded_Unit
                     }
                     player.Draw(spriteBatch, debugpixel);
 
-                    Pausing.Draw();
+
                     break;
             }
 
 
             spriteBatch.End();
+            spriteBatch.Begin(); //this is specfically for drawing the HUD
+            switch (CurrentState)
+            {
+
+                case GameStates.Pause:
+                    Pausing.Draw();
+                    break;
+
+            }
+            spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
