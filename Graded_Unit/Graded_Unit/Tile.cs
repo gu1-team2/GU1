@@ -47,16 +47,29 @@ namespace Graded_Unit
 
         public CollisionTiles(int i, Rectangle newRectangle)
         {
-            texture = Content.Load<Texture2D>("Tile" + i);
+            if (i < 3)
+            {
+                texture = Content.Load<Texture2D>("Tile" + i);
+            }
+            else
+            {
+                texture = Content.Load<Texture2D>("Tile2");
+            }
             this.Rectangle = newRectangle;
+
             VISITED = false;
+
             if (i == 1)
             {
                 IMPASSABLE = true;
             }
-            if (i == 2)
+            if (i == 3)
             {
                 START = true;
+            }
+            if (i == 4)
+            {
+                EXIT = true;
             }
         }
     }

@@ -29,13 +29,18 @@ namespace Graded_Unit
         Random R;
 
         Texture2D Texture, MovingTexture, BulletTexture;
+
         Vector2 Position, Origin;
         Vector2 MapSize;
-        Rectangle CollisionRect, Detection;
+        public Rectangle CollisionRect, Detection;
+
         float Rotation, Scale, Timer;
         int ResetLocation, S, Seconds, Speed;
+
         List<Bullet> En_Bullets;
         List<CollisionTiles> Tiles;
+
+        public bool VISIBLE = false;
 
         public Enemy(Random rng, int Width, int Height, List<CollisionTiles> tiles)
         {
@@ -56,7 +61,7 @@ namespace Graded_Unit
             Scale = 0.66f;
             CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
 
-            S = R.Next(0, 4);
+            S = 0 ;
 
             Tiles = tiles;
 
@@ -64,7 +69,7 @@ namespace Graded_Unit
             if (S == 0)
             {
                 EnemyMovement = Type.Stationary;
-
+                Detection = new Rectangle((int)Position.X - (Texture.Width / 2), (int)Position.Y - Texture.Height / 2 - 300, Texture.Width, 300);
             }
             if (S == 1)
             {
@@ -98,6 +103,8 @@ namespace Graded_Unit
                 case Type.Stationary: //doesn't move but rather rotates every so often
 
                     Rotation -= 0.1f;
+                    Detection = new Rectangle((int)Position.X - (Texture.Width / 2), (int)Position.Y - Texture.Height / 2 - 300, Texture.Width, 300);
+
                     break;
                 // movements from here
 
@@ -140,7 +147,7 @@ namespace Graded_Unit
                 {
                     ResetLocation++;
                 }
-                Collision(tile.Rectangle, tile.IMPASSABLE);
+               // Collision(tile.Rectangle, tile.IMPASSABLE);
             }
 
             if(Seconds >=2 && ResetLocation >= 100)
@@ -151,7 +158,6 @@ namespace Graded_Unit
             }
             else if (Seconds >= 2 && ResetLocation < 100)
             {
-                //Position = new Vector2(R.Next(160, (int)MapSize.X - 160), R.Next(160, (int)MapSize.Y - 160));
                 Seconds = 0;
                 ResetLocation = 0;
             }
@@ -162,29 +168,33 @@ namespace Graded_Unit
         }
         public void Draw(SpriteBatch SB)
         {
-            SB.Draw(Texture, Position, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0f);
-            SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
-
-            switch (EnemyMovement)
+            if (VISIBLE)
             {
+                SB.Draw(Texture, Position, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0f);
+                SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
 
-                case Type.MovingUp:
-                    SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Green * 0.5f);
-                    break;
+                switch (EnemyMovement)
+                {
 
-                case Type.MovingLeft:
-                    SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Blue * 0.5f);
-                    break;
+                    case Type.MovingUp:
+                        SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Green * 0.5f);
+                        break;
 
-                case Type.MovingRight:
-                    SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Red * 0.5f);
-                    break;
+                    case Type.MovingLeft:
+                        SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Blue * 0.5f);
+                        break;
 
-                case Type.MovingDown:
-                    SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Yellow * 0.5f);
-                    break;
+                    case Type.MovingRight:
+                        SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Red * 0.5f);
+                        break;
+
+                    case Type.MovingDown:
+                        SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Yellow * 0.5f);
+                        break;
+                }
+                SB.Draw(Content.Load<Texture2D>("pixel"), new Rectangle((int)Position.X - 1, (int)Position.Y - 1, 3, 3), Color.Black);
             }
-            SB.Draw(Content.Load<Texture2D>("pixel"), new Rectangle((int)Position.X - 1, (int)Position.Y - 1, 3, 3), Color.Black);
+            
 
         }
 

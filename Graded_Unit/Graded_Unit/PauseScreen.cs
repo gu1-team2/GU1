@@ -25,7 +25,6 @@ namespace Graded_Unit
 
         public PauseScreen(SpriteBatch sb, GraphicsDevice gd)
         {
-            Editable = new Color(Color.Black, 0.5f);
             SB = sb;
             GD = gd;
             font = content.Load<SpriteFont>("File");
@@ -33,7 +32,7 @@ namespace Graded_Unit
 
         public void Draw()
         {
-            GD.Clear(Editable);
+            SB.Draw(Content.Load<Texture2D>("piXel"), new Rectangle(0, 0, 1920, 1080), Color.Black * 0.5f);
             SB.DrawString(font, "PAUSED", new Vector2(840, 520), Color.White);
         }
     }

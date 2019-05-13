@@ -12,7 +12,7 @@ namespace Graded_Unit
     class Map
     {
         private List<CollisionTiles> collisionTiles = new List<CollisionTiles>();
-        
+
         public List<CollisionTiles> CollisionTiles
         {
             get { return collisionTiles; }
@@ -30,20 +30,20 @@ namespace Graded_Unit
         }
         public Map() { }
 
-        public void Generate(int[,] map,int size)
+        public void Generate(int[,] map, int size)
         {
-            
-            for(int x = 0; x < map.GetLength(1);x++)
-                for(int y = 0;y < map.GetLength(0); y++)
+
+            for (int x = 0; x < map.GetLength(1); x++)
+                for (int y = 0; y < map.GetLength(0); y++)
                 {
                     int number = map[y, x];
 
-                    if(number > 0)
+                    if (number > 0)
                     {
                         collisionTiles.Add(new CollisionTiles(number, new Rectangle(x * size, y * size, size, size)));
                     }
 
-                    width =(x + 1) * size;
+                    width = (x + 1) * size;
 
                     height = (y + 1) * size;
 
@@ -52,7 +52,7 @@ namespace Graded_Unit
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach(CollisionTiles Tile in collisionTiles)
+            foreach (CollisionTiles Tile in collisionTiles)
             {
                 Tile.Draw(spriteBatch);
             }

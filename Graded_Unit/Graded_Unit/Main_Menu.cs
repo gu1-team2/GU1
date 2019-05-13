@@ -30,7 +30,7 @@ namespace Graded_Unit
 
         private Texture2D Background;
         private SpriteFont MenuFont;
-        private GamePadState CurrPad,Oldpad;       //usual declarations
+        private GamePadState CurrPad, Oldpad;       //usual declarations
         private SpriteBatch sb;
         private GraphicsDeviceManager gdm;
 
@@ -39,7 +39,7 @@ namespace Graded_Unit
 
         public Main_Menu(SpriteBatch S, GraphicsDeviceManager G)
         {
- 
+
             i = (int)Selection.Play;
             Background = Content.Load<Texture2D>("background");
             MenuFont = Content.Load<SpriteFont>("File");
@@ -48,7 +48,7 @@ namespace Graded_Unit
         }
         public int ReturnSelection()
         {
-                return i;
+            return i;
         }
 
         public void Update(GamePadState CURRPAD) //Updates the selection when the gamepad is pressed
@@ -70,7 +70,7 @@ namespace Graded_Unit
 
             }
 
-            
+
             if (CurrPad.DPad.Up == ButtonState.Pressed && Oldpad.DPad.Up == ButtonState.Released)
                 i++;
 
