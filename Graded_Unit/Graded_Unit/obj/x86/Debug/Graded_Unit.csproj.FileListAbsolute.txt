@@ -183,7 +183,6 @@ E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\I
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-2.xnb
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-3.xnb
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-4.xnb
-E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-5.xnb
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\PlayerAim.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile2.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-1.xnb
@@ -211,3 +210,19 @@ F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\i
 F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\revolver-hud.xnb
 F:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\A-Button.xnb
 E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\hatch-door.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Control-screen.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-0.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\EndGame.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Shooting.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Enemy_H.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Enemy_V.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Walk.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Reload.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Hud.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel Collected.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Detection.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Health.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Alarm.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Hud Font.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\GameOver.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Instructions.xnb

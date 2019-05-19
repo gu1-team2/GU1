@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace Graded_Unit
 {
+    /// <summary>
+    /// this was done by rory.
+    /// 
+    /// 
+    /// </summary>
     class PauseScreen
     {
-        Color Editable;
         SpriteBatch SB;
         GraphicsDevice GD;
         SpriteFont font;

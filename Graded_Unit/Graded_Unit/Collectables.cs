@@ -9,8 +9,7 @@ using System.Collections.Generic;
 
 namespace Graded_Unit
 {
-    // this is for setting the intel and exit points on the map due to how big the tiles are for the 
-    // map it would make it look a bit ridiculus
+   // The most of theis was done by 
 
     class Collectables
     {
@@ -33,7 +32,7 @@ namespace Graded_Unit
         public List<CollisionTiles> Tiles;
 
 
-        public Collectables(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers,List<CollisionTiles> TILES,Vector2 Size)
+        public Collectables(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size)
         {
             txr = TEXTURE;
 
@@ -53,18 +52,20 @@ namespace Graded_Unit
             {
                 sb.Draw(txr, CollisionRect, Color.White);
             }
-            
+
         }
     }
 
     class Ammo : Collectables
     {
-        public Ammo(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers,List<CollisionTiles>TILES,Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers,TILES,Size)
+        public Ammo(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers, TILES, Size)
         {
             Collected = false;
             Exit = false;
             Visible = false;
             Impassable = false;
+            CollisionRect.Width = CollisionRect.Width / 2;
+            CollisionRect.Height = CollisionRect.Height / 2;
         }
         public void Update(GameTime gameTime)
         {
@@ -99,15 +100,16 @@ namespace Graded_Unit
 
     class Intel : Collectables
     {
-        public Intel(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers,List<CollisionTiles> TILES,Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers,TILES,Size)
+        public Intel(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers, TILES, Size)
         {
             Collected = false;
             Exit = false;
             Visible = false;
             Impassable = true;
+
         }
 
-        public void Update( GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             Timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             Seconds += (int)Timer;
@@ -120,6 +122,7 @@ namespace Graded_Unit
                 if (CollisionRect.Intersects(tile.Rectangle) && tile.IMPASSABLE)
                 {
                     ImStuckCounter++;
+                    Visible = false;
                 }
             }
 
@@ -140,7 +143,7 @@ namespace Graded_Unit
     class Exit : Collectables
     {
 
-        public Exit(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers,List<CollisionTiles> TILES,Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers,TILES,Size)
+        public Exit(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers, TILES, Size)
         {
             Collected = false;
             Exit = true;

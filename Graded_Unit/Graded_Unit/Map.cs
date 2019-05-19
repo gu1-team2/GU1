@@ -9,6 +9,7 @@ using System.Linq;
 
 namespace Graded_Unit
 {
+
     class Map
     {
         private List<CollisionTiles> collisionTiles = new List<CollisionTiles>();
