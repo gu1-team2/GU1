@@ -35,7 +35,7 @@ namespace Graded_Unit
     {
         Texture2D debugpixel;
 
-        GameStates CurrentState = GameStates.Controls;
+        GameStates CurrentState = GameStates.Start;
         Levels CurrentLevels = Levels.Level0;
 
         GraphicsDeviceManager graphics;
@@ -83,7 +83,7 @@ namespace Graded_Unit
         {
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
             RNG = new Random();

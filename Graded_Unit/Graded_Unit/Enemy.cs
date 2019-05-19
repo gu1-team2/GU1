@@ -184,7 +184,7 @@ namespace Graded_Unit
             if (VISIBLE)
             {
 
-                SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
+                //SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
 
                 switch (EnemyMovement)
                 {
@@ -209,7 +209,7 @@ namespace Graded_Unit
                         break;
 
                 }
-                SB.Draw(Content.Load<Texture2D>("pixel"), new Rectangle((int)Position.X - 1, (int)Position.Y - 1, 3, 3), Color.Black);
+                //SB.Draw(Content.Load<Texture2D>("pixel"), new Rectangle((int)Position.X - 1, (int)Position.Y - 1, 3, 3), Color.Black);
             }
 
 
