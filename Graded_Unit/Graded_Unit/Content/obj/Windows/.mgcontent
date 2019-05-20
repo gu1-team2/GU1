@@ -4,38 +4,38 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/background.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile2.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/bullet-hud.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/intel.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/revolver-hud.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/A-Button.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/hatch-door.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-0.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-1.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-2.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-3.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-4.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/EndGame.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_H.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_V.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/PlayerAim.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Shooting.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Walk.wav</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Reload.wav</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Hud.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel Collected.wav</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Detection.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Health.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Alarm.wav</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Hud Font.spritefont</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Control-screen.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/GameOver.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Instructions.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/pixel.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Gun.wav</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/background.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/File.spritefont</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile2.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/bullet-hud.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/intel.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/revolver-hud.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/A-Button.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/hatch-door.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-0.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-1.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-2.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-3.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-4.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/EndGame.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_H.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_V.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/PlayerAim.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Shooting.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Walk.wav</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Reload.wav</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Hud.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel Collected.wav</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Detection.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Health.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Alarm.wav</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Hud Font.spritefont</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Control-screen.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/GameOver.png</File>
+    <File>D:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Instructions.png</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -87,7 +87,7 @@ namespace Graded_Unit
                 Texture = Content.Load<Texture2D>("Enemy_V");
             }
             Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
-            CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
+            CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width /4 *3, Texture.Height/4*3);
 
             Speed = R.Next(1, 5);
             Timer = 0;
@@ -102,11 +102,13 @@ namespace Graded_Unit
             if(Colour <= 0)
             {
                 CollisionRect.X = -2000;
+                Position.X = -2000;
                 Colour = 0;
             }
             if(Scale <= 0)
             {
                 CollisionRect.X = -2000;
+                Position.X = -2000;
                 Scale = 0;
             }
             switch (EnemyMovement)

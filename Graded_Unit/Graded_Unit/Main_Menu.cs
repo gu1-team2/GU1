@@ -95,7 +95,9 @@ namespace Graded_Unit
         {
             sb.Draw(Background, new Rectangle(0, 0, gdm.PreferredBackBufferWidth, gdm.PreferredBackBufferHeight), Color.White);
             sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 150), Color.Black);
-            sb.DrawString(MenuFont, "", new Vector2(100, 150), Color.Black);
+            sb.DrawString(MenuFont, "Tunnel Rats", new Vector2(100, 150), Color.Black);
+            sb.DrawString(MenuFont, "Select", new Vector2(1000, 1800), Color.Black);
+            sb.Draw(Content.Load<Texture2D>("A-Button"), new Rectangle(1050, 1800, 30, 30), Color.White);
         }
     }
 }
