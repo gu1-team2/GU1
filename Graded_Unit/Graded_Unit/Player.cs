@@ -321,7 +321,11 @@ namespace Graded_Unit
             {
                 if (CollisionRect.Intersects(enemy.Detection) || CollisionRect.Intersects(enemy.CollisionRect) && enemy.VISIBLE)
                 {
-                    DetectionMeter += 0.005f;
+                    DetectionMeter += 0.003f;
+                }
+                if (!CollisionRect.Intersects(enemy.Detection))
+                {
+                    DetectionMeter -= 0.001f;
                 }
             }
 
