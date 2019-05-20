@@ -99,9 +99,15 @@ namespace Graded_Unit
         public void Update(GameTime gameTime,List<Intel>Intellegence)
         {
 
-            if(Colour < 0)
+            if(Colour <= 0)
             {
                 CollisionRect.X = -2000;
+                Colour = 0;
+            }
+            if(Scale <= 0)
+            {
+                CollisionRect.X = -2000;
+                Scale = 0;
             }
             switch (EnemyMovement)
             {

@@ -387,10 +387,7 @@ namespace Graded_Unit
                     GameOverScreen.Update(gameTime);
                     if (GameOverScreen.Seconds > 5 && CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released)
                     {
-                        SwitchMap(Tutorial,2,4);
-                        CurrentState = GameStates.Start;
-                        GameOverScreen.Seconds = 0;
-
+                        Exit();
                     }
                     break;
 
@@ -398,9 +395,7 @@ namespace Graded_Unit
                     Completed.Update(gameTime);
                     if (Completed.Seconds > 5 && CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released)
                     {
-                        SwitchMap(Tutorial, 2, 4);
-                        CurrentState = GameStates.Start;
-                        Completed.Seconds = 0;
+                        Exit();
                     }
 
 
@@ -681,10 +676,7 @@ namespace Graded_Unit
                     break;
             }
 
-            foreach (Enemy enemy in Enemies)
-            {
-                enemy.Draw(spriteBatch);
-            }
+
             foreach (Intel intel in Intellegence)
             {
                 intel.Draw(spriteBatch);
@@ -694,6 +686,11 @@ namespace Graded_Unit
                 ammo.Draw(spriteBatch);
             }
             LevelExit.Draw(spriteBatch);
+
+            foreach (Enemy enemy in Enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
             player.Draw(spriteBatch, debugpixel, gameTime);
         }
     }

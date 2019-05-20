@@ -53,7 +53,7 @@ namespace Graded_Unit
             if (Seconds > 5)
             {
                 SB.Draw(A_Button, ButtonPos, Color.White);
-                SB.DrawString(font, "Continue", WordPos, Color.White);
+                SB.DrawString(font, "Continue", WordPos, Color.Black);
             }
         }
     }

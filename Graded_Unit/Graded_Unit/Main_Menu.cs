@@ -94,8 +94,8 @@ namespace Graded_Unit
         public void Draw() //Draws the menu assets
         {
             sb.Draw(Background, new Rectangle(0, 0, gdm.PreferredBackBufferWidth, gdm.PreferredBackBufferHeight), Color.White);
-            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 100), Color.Black);
-
+            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 150), Color.Black);
+            sb.DrawString(MenuFont, "", new Vector2(100, 150), Color.Black);
         }
     }
 }
