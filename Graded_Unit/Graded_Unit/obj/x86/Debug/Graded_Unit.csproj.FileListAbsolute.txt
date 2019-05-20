@@ -242,3 +242,30 @@ D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\H
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Control-screen.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\GameOver.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Instructions.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\A-Button.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Alarm.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\bullet-hud.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Control-screen.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Detection.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\EndGame.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Enemy_H.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Enemy_V.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\GameOver.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\hatch-door.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Health.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Hud Font.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Hud.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Instructions.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel Collected.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-0.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-1.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-2.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-3.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Intel-Piece-4.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\intel.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\PlayerAim.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Reload.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\revolver-hud.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Shooting.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Tile2.xnb
+C:\Users\ec1523381\Source\Repos\GU1\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Walk.xnb
