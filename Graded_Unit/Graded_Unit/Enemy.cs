@@ -87,25 +87,26 @@ namespace Graded_Unit
                 Texture = Content.Load<Texture2D>("Enemy_V");
             }
             Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
-            CollisionRect = new Rectangle((int)Position.X - Texture.Width / 2, (int)Position.Y - Texture.Height / 2, Texture.Width, Texture.Height);
 
-            Speed = R.Next(1, 3);
+            CollisionRect = new Rectangle((int)Position.X - 25, (int)Position.Y - 25, 50, 50);
+
+            Speed = R.Next(1, 4);
             Timer = 0;
 
 
 
         }
 
-        public void Update(GameTime gameTime,List<Intel>Intellegence)
+        public void Update(GameTime gameTime, List<Intel> Intellegence)
         {
 
-            if(Colour <= 0)
+            if (Colour <= 0)
             {
                 CollisionRect.X = -2000;
                 Position.X = -2000;
                 Colour = 0;
             }
-            if(Scale <= 0)
+            if (Scale <= 0)
             {
                 CollisionRect.X = -2000;
                 Position.X = -2000;
@@ -161,13 +162,21 @@ namespace Graded_Unit
                 if (tile.Rectangle.Intersects(CollisionRect) && tile.IMPASSABLE)
                 {
                     ResetLocation++;
-                    
+
                 }
-                Collision(tile.Rectangle, tile.IMPASSABLE);
+                if(EnemyMovement != Type.Death)
+                {
+                    Collision(tile.Rectangle, tile.IMPASSABLE);
+                }
+                
             }
-            foreach(Intel intel in Intellegence)
+            foreach (Intel intel in Intellegence)
             {
-                Collision(intel.CollisionRect, intel.Impassable);
+                if (EnemyMovement != Type.Death)
+                {
+                    Collision(intel.CollisionRect, intel.Impassable);
+                }
+                
             }
 
             if (Seconds >= 2 && ResetLocation >= 100)
@@ -183,8 +192,10 @@ namespace Graded_Unit
                 ResetLocation = 0;
             }
 
-            CollisionRect.X = (int)Position.X - Texture.Width / 2;
-            CollisionRect.Y = (int)Position.Y - Texture.Height / 2;
+
+
+            CollisionRect.X = (int)Position.X - CollisionRect.Width / 2;
+            CollisionRect.Y = (int)Position.Y - CollisionRect.Height / 2;
 
         }
         public void Draw(SpriteBatch SB)
@@ -192,7 +203,7 @@ namespace Graded_Unit
             if (VISIBLE)
             {
 
-                //SB.Draw(Content.Load<Texture2D>("pixel"), Detection, Color.Pink * 0.25f);
+                SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Pink * 0.25f);
 
                 switch (EnemyMovement)
                 {

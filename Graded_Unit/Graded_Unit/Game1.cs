@@ -83,7 +83,7 @@ namespace Graded_Unit
         {
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
             RNG = new Random();
@@ -126,7 +126,7 @@ namespace Graded_Unit
             GameOverScreen = new Screens(Content.Load<Texture2D>("GameOver"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
             Instructions = new Screens(Content.Load<Texture2D>("EndGame"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
 
-            for (int D = 0; D < (int)Levels.Level3; D++)
+            for (int D = 0; D <= (int)Levels.Level3; D++)
             {
                 DisplayIntel.Add(new Screens(Content.Load<Texture2D>("Intel-Piece-" + D), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File")));
             }
@@ -211,9 +211,9 @@ namespace Graded_Unit
                 {1,1,2,1,1,2,2,2,2,2,1,1,2,1,1,1,2,1,1,1,1,2,2,2,2,1,1,1,1,2,1,1,1,1,1,2,1,2,2,2,1,1,1,1,1,1,1,1},//20
                 {1,1,2,2,2,2,2,1,1,1,1,1,2,1,1,1,2,2,1,1,1,2,1,2,1,1,1,1,1,2,1,1,1,1,1,2,2,2,1,2,1,1,1,1,1,1,1,1},//21
                 {1,1,2,2,2,1,1,1,1,1,1,1,2,1,1,1,1,2,1,1,1,2,1,2,1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,2,2,2,2,2,1,1,1,1},//22
-                {1,1,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,2,2,2,2,2,1,2,2,1,1,2,1,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,1,1},//23
+                {1,1,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,2,2,2,2,2,1,2,2,1,2,2,1,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,1,1},//23
                 {1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,2,2,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,1,1},//24
-                {1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,2,2,2,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,1},//25
+                {1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,2,2,2,1,1,1,1,1,2,2,2,2,2,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,1},//25
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//26
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//27 should be all ones
 
@@ -262,15 +262,15 @@ namespace Graded_Unit
 
             for (int i = 0; i < 1; i++)
             {
-                Intellegence.Add(new Intel(Content.Load<Texture2D>("intel"), new Vector2(RNG.Next(160, Tutorial.Width - 160), RNG.Next(160, Tutorial.Height - 160)), RNG, Tutorial.CollisionTiles, new Vector2(Tutorial.Width, Tutorial.Height)));
+                Intellegence.Add(new Intel(Content.Load<Texture2D>("intel"), Content.Load<Texture2D>("intel_Collect"), new Vector2(RNG.Next(160, Tutorial.Width - 160), RNG.Next(160, Tutorial.Height - 160)), RNG, Tutorial.CollisionTiles, new Vector2(Tutorial.Width, Tutorial.Height)));
             }
             for (int i = 0; i < 1; i++)
             {
-                Ammunition.Add(new Ammo(Content.Load<Texture2D>("bullet-hud"), new Vector2(RNG.Next(160, Tutorial.Width - 160), RNG.Next(160, Tutorial.Height - 160)), RNG, Tutorial.CollisionTiles, new Vector2(Tutorial.Width, Tutorial.Height)));
+                Ammunition.Add(new Ammo(Content.Load<Texture2D>("Bullet-Ground"), new Vector2(RNG.Next(160, Tutorial.Width - 160), RNG.Next(160, Tutorial.Height - 160)), RNG, Tutorial.CollisionTiles, new Vector2(Tutorial.Width, Tutorial.Height)));
             }
             LevelExit = new Exit(Content.Load<Texture2D>("hatch-door"), new Vector2(0, 0), RNG, Tutorial.CollisionTiles, new Vector2(0, 0));
 
-            player = new Player(3, Tutorial.CollisionTiles, Ammunition, Intellegence, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            player = new Player(4, Tutorial.CollisionTiles, Ammunition, Intellegence, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 
 
             // TODO: use this.Content to load your game content here
@@ -522,14 +522,14 @@ namespace Graded_Unit
             }
             for (int i = 0; i < 6; i++)
             {
-                Intellegence.Add(new Intel(Content.Load<Texture2D>("intel"), new Vector2(RNG.Next(160, Current.Width - 160), RNG.Next(160, Current.Height - 160)), RNG, Current.CollisionTiles, new Vector2(Current.Width, Current.Height)));
+                Intellegence.Add(new Intel(Content.Load<Texture2D>("intel"), Content.Load<Texture2D>("intel_Collect"), new Vector2(RNG.Next(160, Current.Width - 160), RNG.Next(160, Current.Height - 160)), RNG, Current.CollisionTiles, new Vector2(Current.Width, Current.Height)));
             }
             for (int A = 0; A < RNG.Next(MinEnemies, MaxEnemies); A++)
             {
-                Ammunition.Add(new Ammo(Content.Load<Texture2D>("bullet-hud"), new Vector2(RNG.Next(160, Current.Width - 160), RNG.Next(160, Current.Height - 160)), RNG, Current.CollisionTiles, new Vector2(Current.Width, Current.Height)));
+                Ammunition.Add(new Ammo(Content.Load<Texture2D>("Bullet-Ground"), new Vector2(RNG.Next(160, Current.Width - 160), RNG.Next(160, Current.Height - 160)), RNG, Current.CollisionTiles, new Vector2(Current.Width, Current.Height)));
             }
 
-            player = new Player(3, Current.CollisionTiles, Ammunition, Intellegence, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            player = new Player(4, Current.CollisionTiles, Ammunition, Intellegence, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             LevelExit = new Exit(Content.Load<Texture2D>("hatch-door"), new Vector2(0, 0), RNG, Current.CollisionTiles, new Vector2(0, 0));
         }
         void IntelDisplay(GameTime gameTime)
@@ -590,7 +590,6 @@ namespace Graded_Unit
                 if(Respawn <= 0)
                 {
                     Enemies.Add(new Enemy(RNG, Tutorial.Width, Tutorial.Height, Tutorial.CollisionTiles));
-                    Ammunition.Add(new Ammo(Content.Load<Texture2D>("bullet-hud"), new Vector2(RNG.Next(160, Tutorial.Width - 160), RNG.Next(160, Tutorial.Height - 160)), RNG, Tutorial.CollisionTiles, new Vector2(Tutorial.Width, Tutorial.Height)));
                     Respawn = 5;
                 }
 
@@ -599,7 +598,7 @@ namespace Graded_Unit
 
             LevelExit.Update();
 
-            player.Update(CurrPad, Enemies, CurrentState, LevelExit);
+            player.Update(CurrPad, Enemies, CurrentState, LevelExit,gameTime);
 
             if (player.CollectionRange.Intersects(LevelExit.CollisionRect) && CurrPad.Buttons.A == ButtonState.Pressed && Oldpad.Buttons.A == ButtonState.Released && player.IntelCollected == Intellegence.Count)
             {

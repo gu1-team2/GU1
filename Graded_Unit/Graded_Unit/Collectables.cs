@@ -13,7 +13,7 @@ namespace Graded_Unit
 
     class Collectables
     {
-        Texture2D txr;
+        public Texture2D txr,txr2;
 
         Vector2 Pos;
 
@@ -100,13 +100,14 @@ namespace Graded_Unit
 
     class Intel : Collectables
     {
-        public Intel(Texture2D TEXTURE, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers, TILES, Size)
+        public Intel(Texture2D TEXTURE,Texture2D TEXTURE2, Vector2 POSITION, Random A_Generator_Of_Random_Numbers, List<CollisionTiles> TILES, Vector2 Size) : base(TEXTURE, POSITION, A_Generator_Of_Random_Numbers, TILES, Size)
         {
             Collected = false;
             Exit = false;
             Visible = false;
             Impassable = true;
-
+            txr = TEXTURE;
+            txr2 = TEXTURE2;
         }
 
         public void Update(GameTime gameTime)
@@ -137,6 +138,10 @@ namespace Graded_Unit
             {
                 Seconds = 0;
                 ImStuckCounter = 0;
+            }
+            if(Collected)
+            {
+                txr = txr2;  
             }
         }
     }

@@ -32,9 +32,9 @@ namespace Graded_Unit
             font = fnt;
 
             Position = new Rectangle(0, 0, Display.Width, Display.Height);
-            ButtonPos = new Rectangle(1920 - (A_Button.Width/2), 1080 - (A_Button.Height/2), A_Button.Width/2, A_Button.Height/2);
+            ButtonPos = new Rectangle(1920 - (A_Button.Width/2) - 50, 1080 - (A_Button.Height/2) - 50, A_Button.Width/2, A_Button.Height/2);
 
-            WordPos = new Vector2(ButtonPos.X - 240, ButtonPos.Y + A_Button.Height/4);
+            WordPos = new Vector2(ButtonPos.X - 240, ButtonPos.Y + (A_Button.Height/4) - 15);
         }
         public void Update(GameTime gameTime)
         {

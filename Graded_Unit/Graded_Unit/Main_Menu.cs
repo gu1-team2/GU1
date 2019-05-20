@@ -94,10 +94,10 @@ namespace Graded_Unit
         public void Draw() //Draws the menu assets
         {
             sb.Draw(Background, new Rectangle(0, 0, gdm.PreferredBackBufferWidth, gdm.PreferredBackBufferHeight), Color.White);
-            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 150), Color.Black);
-            sb.DrawString(MenuFont, "Tunnel Rats", new Vector2(100, 150), Color.Black);
-            sb.DrawString(MenuFont, "Select", new Vector2(980, 1800), Color.Black);
-            sb.Draw(Content.Load<Texture2D>("A-Button"), new Rectangle(1050, 1800, 30, 30), Color.White);
+            sb.DrawString(MenuFont, DisplayedText, new Vector2(100, 250), Color.Black);
+            sb.DrawString(Content.Load<SpriteFont>("Title Font"), "Tunnel Rats", new Vector2(90, 50), Color.Black);
+            sb.DrawString(MenuFont, "Select", new Vector2(320, 293), Color.Black);
+            sb.Draw(Content.Load<Texture2D>("A-Button"), new Rectangle(260,300, 30, 30), Color.White);
         }
     }
 }

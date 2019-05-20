@@ -242,3 +242,6 @@ D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\H
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Control-screen.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\GameOver.xnb
 D:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Instructions.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\intel_Collect.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Bullet-Ground.xnb
+E:\HND Games\Graded Unit\Graded_Unit\Graded_Unit\bin\Windows\x86\Debug\Content\Title Font.xnb

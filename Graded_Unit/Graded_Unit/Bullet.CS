@@ -15,7 +15,7 @@ namespace Graded_Unit
         Vector2 Direction;
         public Rectangle Collision;
         float Rotation;
-        int Speed = 10;
+        int Speed = 15;
         public bool isVisible;
 
         public Bullet(Texture2D TXR, int X, int Y, float ROT)
@@ -36,7 +36,7 @@ namespace Graded_Unit
         }
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(Texture, Collision, Color.White);
+            sb.Draw(Texture, Pos, null, Color.White, Rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
     }

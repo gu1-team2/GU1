@@ -56,6 +56,8 @@ namespace Graded_Unit
 
         public Rectangle CollectionRange;
 
+        float addTimer = 0f;
+        int add =0;
 
         List<Ammo> Ammunition = new List<Ammo>();
         List<Bullet> Bullets = new List<Bullet>();
@@ -143,7 +145,7 @@ namespace Graded_Unit
             speed = S;
         }
 
-        public void Update(GamePadState Currpad, List<Enemy> Enemies, GameStates CurrentState, Exit exit)
+        public void Update(GamePadState Currpad, List<Enemy> Enemies, GameStates CurrentState, Exit exit,GameTime gameTime)
         {
             if(DetectionMeter < 0)
             {
@@ -184,7 +186,7 @@ namespace Graded_Unit
 
             BulletUpdate(Enemies);
             Collect(exit, CurrentState);
-            Detection_Check(Enemies);
+            Detection_Check(Enemies,gameTime);
 
 
             VisibilityCheck(Enemies, exit);
@@ -318,20 +320,30 @@ namespace Graded_Unit
                 Movement.Y = 0f;
             }
         }
-        void Detection_Check(List<Enemy> Enemies)
+        void Detection_Check(List<Enemy> Enemies,GameTime gt)
         {
             foreach (Enemy enemy in Enemies)
             {
                 if (CollisionRect.Intersects(enemy.Detection) || CollisionRect.Intersects(enemy.CollisionRect) && enemy.VISIBLE)
                 {
-                    DetectionMeter += 0.003f;
-                }
-                if (!CollisionRect.Intersects(enemy.Detection))
-                {
-                    DetectionMeter -= 0.001f;
-                    
+                    DetectionMeter += 0.004f;
                 }
             }
+
+            addTimer += (float)gt.ElapsedGameTime.TotalSeconds;
+            add += (int)addTimer;
+            if (addTimer >= 1f)
+            {
+                addTimer = 0f;
+            }
+
+            if(add > 5)
+            {
+                DetectionMeter -= 0.5f;
+                add = 0;
+            }
+
+
 
             DetectionBar = new Rectangle(35, 50, (int)((Detection.Width / 4 * 3) * DetectionMeter), Detection.Height / 2);
         }
