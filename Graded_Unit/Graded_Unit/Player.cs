@@ -145,7 +145,10 @@ namespace Graded_Unit
 
         public void Update(GamePadState Currpad, List<Enemy> Enemies, GameStates CurrentState, Exit exit)
         {
-
+            if(DetectionMeter < 0)
+            {
+                DetectionMeter = 0;
+            }
             m_CurrentState = Currpad; // always at start of update
             PlayerMovement();
 
@@ -326,6 +329,7 @@ namespace Graded_Unit
                 if (!CollisionRect.Intersects(enemy.Detection))
                 {
                     DetectionMeter -= 0.001f;
+                    
                 }
             }
 
