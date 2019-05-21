@@ -86,18 +86,6 @@
 /processorParam:TextureFormat=Color
 /build:bullet-hud.png
 
-#begin revolver-hud.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:revolver-hud.png
-
 #begin A-Button.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -229,18 +217,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:PlayerAim.png
-
-#begin Shooting.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Shooting.png
 
 #begin Walk.wav
 /importer:WavImporter
@@ -399,4 +375,16 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Title Font.spritefont
+
+#begin Walking-SpriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Walking-SpriteSheet.png
 

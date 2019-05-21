@@ -8,8 +8,8 @@ using System.Collections.Generic;
 
 enum PlayerDraw
 {
-    notShoot,
-    Shoot,
+    notWalk,
+    walk,
 }
 
 
@@ -35,10 +35,10 @@ namespace Graded_Unit
             set { content = value; }
         }
 
-        PlayerDraw animation = PlayerDraw.notShoot;
+        PlayerDraw animation = PlayerDraw.notWalk;
         Texture2D m_txr, BulletTxr;
 
-        Texture2D ShootSpriteSheet;
+        Texture2D Walking;
 
         Texture2D Hud, HudBullet, Health, Detection;
 
@@ -80,7 +80,8 @@ namespace Graded_Unit
         {
             m_txr = Content.Load<Texture2D>("PlayerAim");
 
-            ShootSpriteSheet = Content.Load<Texture2D>("Shooting");
+            Walking = Content.Load<Texture2D>("Walking-SpriteSheet");
+
 
             BulletTxr = Content.Load<Texture2D>("Bullet");
 
@@ -154,10 +155,6 @@ namespace Graded_Unit
             m_CurrentState = Currpad; // always at start of update
             PlayerMovement();
 
-            if (m_CurrentState.Buttons.RightStick == ButtonState.Pressed)
-            {
-                //something
-            }
             if (AmmoCount > 6)
             {
                 AmmoCount = 6;
@@ -172,7 +169,6 @@ namespace Graded_Unit
             {
                 if (m_CurrentState.Triggers.Right >= 0.5 && OldState.Triggers.Right < 0.5 && AmmoCount > 0)
                 {
-                    animation = PlayerDraw.Shoot;
                     Bullets.Add(new Bullet(BulletTxr, (int)BulletSpawn.X, (int)BulletSpawn.Y, m_Rotation));
                     BulletSoundInstance.Play();
 
@@ -185,7 +181,7 @@ namespace Graded_Unit
 
 
             BulletUpdate(Enemies);
-            Collect(exit, CurrentState);
+            Collect();
             Detection_Check(Enemies,gameTime);
 
 
@@ -201,8 +197,6 @@ namespace Graded_Unit
         }
         void BulletUpdate(List<Enemy> Enemies) // all the bullet stuff is done here
         {
-            //add the bullet stuff
-
 
             //bullet movement update and the condition for if it hits an enemy
 
@@ -263,7 +257,7 @@ namespace Graded_Unit
             }
         }
 
-        void Collect(Exit exit, GameStates CurrentState)
+        void Collect()
         {
             foreach (Intel intel in Intellegence)
             {
@@ -359,12 +353,18 @@ namespace Graded_Unit
             {
                 m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Left.X, m_CurrentState.ThumbSticks.Left.Y); // This makes the player face where the Left stick is pointed at
                 WalkSoundInstance.Play();
-
+                animation = PlayerDraw.walk;
             }
             if (m_CurrentState.ThumbSticks.Right.X != 0 || m_CurrentState.ThumbSticks.Right.Y != 0)
             {
                 m_Rotation = (float)Math.Atan2(m_CurrentState.ThumbSticks.Right.X, m_CurrentState.ThumbSticks.Right.Y); // This makes the player face where the right stick is pointed at
+            
             }
+            if(m_CurrentState.ThumbSticks.Left.X == 0 && m_CurrentState.ThumbSticks.Left.Y == 0)
+            {
+                animation = PlayerDraw.notWalk;
+            }
+
         }
         void rectMovement()
         {
@@ -472,22 +472,7 @@ namespace Graded_Unit
         public void Draw(SpriteBatch sb, Texture2D px, GameTime gt)
         {
 
-            if (frame_timer <= 0)
-            {
-                rectangle.X = (rectangle.X + rectangle.Width);
 
-                if (rectangle.X >= ShootSpriteSheet.Width)
-                {
-                    rectangle.X = 0;
-                    animation = PlayerDraw.notShoot;
-                }
-
-                frame_timer = 1;
-            }
-            else
-            {
-                frame_timer -= (float)gt.ElapsedGameTime.TotalSeconds * 24;
-            }
 
 
 
@@ -499,14 +484,33 @@ namespace Graded_Unit
 
             switch (animation)
             {
-                case PlayerDraw.notShoot:
+                case PlayerDraw.notWalk:
                     sb.Draw(m_txr, m_Pos, null, Color.White, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
 
                     break;
 
-                case PlayerDraw.Shoot:
-                    sb.Draw(ShootSpriteSheet, m_Pos, rectangle, Color.White, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
 
+
+                case PlayerDraw.walk:
+
+                    if (frame_timer <= 0)
+                    {
+                        rectangle.X = (rectangle.X + rectangle.Width);
+
+                        if (rectangle.X >= Walking.Width)
+                        {
+                            rectangle.X = 0;
+                            
+                        }
+
+                        frame_timer = 1;
+                    }
+                    else
+                    {
+                        frame_timer -= (float)gt.ElapsedGameTime.TotalSeconds * 24;
+                    }
+
+                    sb.Draw(Walking, m_Pos, rectangle, Color.White, m_Rotation, m_Origin, m_Scale, SpriteEffects.None, 0f);
                     break;
             }
 

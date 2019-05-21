@@ -11,7 +11,6 @@
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile1.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Tile2.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/bullet-hud.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/revolver-hud.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/A-Button.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/hatch-door.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Intel-Piece-0.png</File>
@@ -23,7 +22,6 @@
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_H.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Enemy_V.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/PlayerAim.png</File>
-    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Shooting.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Walk.wav</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Reload.wav</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Hud.png</File>
@@ -40,5 +38,6 @@
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet-Ground.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Bullet.png</File>
     <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Title Font.spritefont</File>
+    <File>E:/HND Games/Graded Unit/Graded_Unit/Graded_Unit/Content/Walking-SpriteSheet.png</File>
   </SourceFiles>
 </SourceFileCollection>

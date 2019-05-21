@@ -203,7 +203,7 @@ namespace Graded_Unit
             if (VISIBLE)
             {
 
-                SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Pink * 0.25f);
+                //SB.Draw(Content.Load<Texture2D>("pixel"), CollisionRect, Color.Pink * 0.25f);
 
                 switch (EnemyMovement)
                 {
