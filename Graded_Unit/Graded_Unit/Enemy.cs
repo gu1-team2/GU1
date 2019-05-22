@@ -49,9 +49,6 @@ namespace Graded_Unit
             R = rng;
 
 
-
-            BulletTexture = Content.Load<Texture2D>("Bullet");
-
             Position = new Vector2(R.Next(160, Width - 160), R.Next(160, Height - 160));
 
 

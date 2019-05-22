@@ -31,6 +31,14 @@ enum Levels
 namespace Graded_Unit
 {
 
+    /// <summary>
+    /// 
+    /// for the most part alot of the code has been uploaded on kierans user due to his already having access along side rorys user
+    /// 
+    /// 
+    /// 
+    /// </summary>
+
     public class Game1 : Game
     {
         Texture2D debugpixel;
