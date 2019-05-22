@@ -43,7 +43,7 @@ namespace Graded_Unit
     {
         Texture2D debugpixel;
 
-        GameStates CurrentState = GameStates.Start;
+        GameStates CurrentState = GameStates.Playing;
         Levels CurrentLevels = Levels.Level0;
 
         GraphicsDeviceManager graphics;
@@ -132,7 +132,7 @@ namespace Graded_Unit
             Controls = new Screens(Content.Load<Texture2D>("Control-screen"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
             Completed = new Screens(Content.Load<Texture2D>("EndGame"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
             GameOverScreen = new Screens(Content.Load<Texture2D>("GameOver"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
-            Instructions = new Screens(Content.Load<Texture2D>("EndGame"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
+            Instructions = new Screens(Content.Load<Texture2D>("Instructions"), Content.Load<Texture2D>("A-Button"), Content.Load<SpriteFont>("File"));
 
             for (int D = 0; D <= (int)Levels.Level3; D++)
             {

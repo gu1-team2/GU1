@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace Graded_Unit
 {
+    // this mainly part of the player class and was completed by kieran
     class Bullet
     {
         Texture2D Texture;
