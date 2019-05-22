@@ -9,7 +9,9 @@ using System.Collections.Generic;
 
 namespace Graded_Unit
 {
-   // The most of theis was done by 
+    // The most of this was done by callum
+
+    // The reason for why his name doesn't come up on the GitHub authors thing is cause it was uploaded using Kieran's User as at the time it was easier to get him to do it there and then
 
     class Collectables
     {

@@ -13,6 +13,14 @@ enum Type
     Death,
 }
 
+/// <summary>
+///  
+/// this bit for the most part was completed kieran
+/// 
+/// everyone else had input on the collisions and agreed on changes
+/// 
+/// </summary>
+
 namespace Graded_Unit
 {
     class Enemy
